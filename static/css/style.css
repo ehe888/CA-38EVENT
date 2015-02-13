@@ -1,0 +1,1087 @@
+/*
+    This is the default style target iPhone5, 5s
+    We use media query to select style sheets for other devices: iphone4/4s, iphone6, iphone6+, 1080p, 720p, 480p android
+*/
+@charset "UTF-8";
+
+body {
+    background-color: #000;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#fff;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0px;
+    text-align: center;
+    max-width: 1080px;
+    overflow: hidden;
+    font-size: 62.5%;
+    margin: 0px;
+    padding: 0px;
+}
+
+html{
+
+
+    width:100%;
+    height:100%;
+}
+.g-ct{
+    position:relative;
+}
+
+
+
+.swiper-container {
+    width:100%;
+    height: 100%;
+    position: absolute;
+}
+
+body .m-screen .g-ct{
+   /* position: absolute;
+    width: 100%;
+    height: 100%;*/
+}
+
+body .g-doc {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body  .g-doc  .g-bd {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+body .m-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+
+/*加载页*/
+body .loading_page{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+
+}
+
+body .loading_logo{
+    position: absolute;
+    top: 20%;
+    left:35.1%;
+    width: 29.7%;/*190px*/
+    z-index: 1000001;
+    -webkit-border-radius: 50px;
+
+   /* box-shadow: 0 0 20px rgba(255,255,255,.6),inset 0 0 20px rgba(255,255,255,1);
+    -webkit-box-shadow: 0 0 50px rgba(255,255,255,.6),inset 0 0 50px rgba(255,255,255,1);*/
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,.1)));*/
+}
+
+body .loading_cover{
+    position: absolute;
+    top: 22.3%;
+    left:38.1%;
+    width: 23%;/*150px*/
+    z-index: 1000000;
+    border-radius: 50px;
+
+
+   /* box-shadow: 0 0 20px rgba(255,255,255,.6),inset 0 0 20px rgba(255,255,255,1);
+    -webkit-box-shadow: 0 0 50px rgba(255,255,255,.6),inset 0 0 50px rgba(255,255,255,1);*/
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,.1)));*/
+}
+
+
+body .loading_dot1{
+    position: absolute;
+    top: 51.8%;
+    left: 71%;
+    width: 2.18%; /*14px*/
+}
+body .loading_dot2{
+    position: absolute;
+    top: 51.8%;
+    left: 73.2%;
+    width: 2.18%; /*14px*/
+}
+body .loading_dot3{
+    position: absolute;
+    top: 51.8%;
+    left: 75.4%;
+    width: 2.18%; /*14px*/
+}
+
+body #divLoading{
+    
+    z-index: 1000000;
+} 
+
+body #divLoading img{
+    width: 100%;
+}
+body .m-progress{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+
+body .loading_num{
+    color: #203873;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    background-color: transparent;
+    position:absolute;
+    border:0;
+    left: 16%;
+    top: 40%;
+    width: 70%;
+    height: 76%;
+    z-index: 1000002;
+
+}
+
+body .percent_symbol{
+    color: #203873;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    background-color: transparent;
+    position:absolute;
+    border:0;
+    left: 18%;
+    top: 40%;
+    width: 70%;
+    height: 76%;
+}
+
+/*首页*/
+
+.page_info{
+    position: absolute;
+    left: 75%;
+    width: 22.34%; /*143/640*/
+    height: 10%;    
+    top:2%;
+}
+
+.info_img{
+    position: absolute;
+    top: 40%;
+    left: 0%;
+}
+
+.page1_dear{
+    position: absolute;
+    left:26% ;
+    width: 47.2%; /*302/640*/
+    top:17% ;
+}
+
+.page1_myGirl{
+    position: absolute;
+    left:20% ;
+    width: 55.5%; /*355/640*/
+    top: 23%;
+}
+
+.page1_txt0{
+    position: absolute;
+    left: 34% ;
+    width: 32.3%; /*207/640*/
+    top: 34%;
+}
+
+.page1_txt1{
+    position: absolute;
+    left: 22.5%;
+    width: 55.3%; /*354/640*/
+    top: 41%;
+}
+
+.page1_txt2{
+    position: absolute;
+    left: 28%;
+    width: 44.2%; /*283/640*/
+    top: 52%;
+}
+
+.page1_waterMark{
+    position: absolute;
+    left: 68.4%;
+    width: 31.6% ; /*202/640*/
+    top:26% ;
+}
+
+.page1_btn{
+    position: absolute;
+    left: 19.5%;
+    width: 60.9%;
+    top: 67%;
+}
+    
+/*回忆插画页*/
+.page2_back{
+    position: absolute;
+    left: 2%; 
+    width: 11.9%; /*76/640*/
+    top: 2%;
+}
+
+.page2_comic{
+    position: absolute;
+    left: 20%;
+    width: 39.1%;/*250/640*/
+    top: 20%;
+}
+
+.page2_comic1{
+    position: absolute;
+    left: 20%;
+    width: 39.1%;/*250/640*/
+    top: 20%;
+}
+
+.page2_comic2{
+    position: absolute;
+    left: 20%;
+    width: 39.1%;/*250/640*/
+    top: 20%;
+}
+
+.page2_btn{
+    position: absolute;
+    left: ;
+    width: ;
+    top: ;
+}
+
+
+/*抽闺蜜红包页*/
+
+.page3_dear{
+    position:absolute;
+    left: 31.8%;
+    width: 36.4%; /*233/640*/
+    top: 10%;
+    z-index: 10001;
+}
+
+.page3_myGirl{
+    position: absolute;
+    left: 27.8%;
+    width: 44.4%;/*284/640*/
+    top: 16%;
+    z-index: 10002;
+}
+
+.page3_envelope{
+    position: absolute;
+    left: 7%;
+    width: 93.3%;/*597/640*/
+    top: 25%;
+    z-index: 10010;
+}
+
+.page3_envelope2{
+    position: absolute;
+    left: 9%;
+    width: 76.2%;/*488/640*/
+    top: 16%;
+}
+
+.page3_letter{
+    position: absolute;
+    left: 9%;
+    width: 75% ;/*480/640*/
+    top: 21%;
+    z-index: 10001;
+}
+
+.page3_secret{
+    position: absolute;
+    left: 50.5%;
+    width: 26.4%; /*169/640*/
+    height: 8%;
+    top: 56.5%;
+    z-index: 10010;
+}
+
+.secret_img{
+    position: absolute;
+    top: 11%;
+    left: 0%;
+}
+
+.page3_drawBtn{
+    position: absolute;
+    left: 19.6%;
+    width: 60.8%;/*389/640*/
+    top: 77.5%;
+}
+
+.page3_txt{
+    position: absolute;
+    left: 26.8%;
+    width: 46.5%;/*297/640*/
+    top: 74.5%;
+}
+
+.page3_phoneNumber{
+    position: absolute;
+    left: 8.4%;
+    width:83.3% ; /*533/640*/
+    top: 65%;
+    z-index: 10011;
+}
+
+#input_mobile{
+    position:absolute;
+    border:0;
+    left: 0%;
+    top: 9.5%;
+    width: 99%;
+    height: 70%;
+    background-color: transparent;
+    color: #C5BAC6;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 500;
+    z-index: 10012;
+}
+
+/*红包页*/
+.page4_bgLight{
+    position: absolute;
+    width: 100%;
+    top: 14%;
+}
+
+
+.page4_txt1{
+    position: absolute;
+    left: 34%; 
+    width: 36.1%; /*231/640*/
+    top: 20%;
+}
+
+.page4_txt2{
+    position: absolute;
+    left: 22%;
+    width: 56.1%; /*359/640*/
+    top: 61%;
+}
+
+.page4_coupon0{
+    position: absolute;
+    left: 4%;
+    width: 92%;/*589/640*/
+    top:26% ;
+}
+
+.page4_coupon1{
+    position: absolute;
+    left: 70%; 
+    width: 15%; /*96/640*/
+    top: 11%;
+}
+
+.page4_coupon2{
+    position: absolute; ;
+    left: 10%;
+    width: 17.2%;/*110/640*/
+    top: 20%;
+}
+
+.page4_coupon3{
+    position: absolute;
+    left: 70%;
+    width: 17.7%;/*113/640*/
+    top: 54%;
+}
+
+.page4_particles{
+    position: absolute;
+    left: 13.5%;
+    width: 85.1%; /*545/640*/
+    top: 20%;
+}
+
+.page4_creat{
+    position: absolute;
+    left: 19.5%;
+    width: 60.9%;/*390/640*/
+    top: 74%;
+}
+
+.page4_cash{
+    position: absolute;
+    top: 35%;
+    left: 27%;
+    width: 40%;
+    font-size: 7em;
+    font-weight: 600;
+
+    color: #fff;
+    -webkit-text-stroke: 2px #2C3047;
+    text-align: center;
+}
+
+/*贺卡页*/
+.page5_bgLight{
+    position: absolute;
+    width: 100%;
+    top: 14%;
+}
+
+.page5_txt{
+    position:absolute;
+    left: 21.2%;
+    width: 57.7%;/*369/640*/
+    top: 15%;
+}
+
+.page5_arrowR{
+    position: absolute;
+    left: 85%;  
+    width: 11.6%; /*37*2/640*/
+    height: 10%;
+    top: 40%;
+    z-index: 10000;
+}
+
+.page5_AR{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 50%;
+}
+
+.page5_arrowL{
+    position: absolute;
+    left: 2%;  
+    width: 11.6%; /*37/640*/
+    height: 10%;
+    top: 40%;
+    z-index: 10000;
+}
+
+.page5_AL{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 50%;
+}
+
+.page5_cus{
+    position: absolute;
+    left: 38.6%;
+    width: 22.8%; /*146/640*/
+    height: 5%;
+    top: 75%;
+    z-index: 10001;
+}
+
+.cus_img{
+    position: absolute;
+    left: 0%;
+    top: 20%;
+}
+
+.page5_card1{
+    position: absolute;
+    left: 5.5%;
+    width: 89.1%; /*570/640*/
+    top: 20%;
+}
+
+.page5_card2{
+    position: absolute;
+    left: 8.7%;
+    width: 82.6%;/*529/640*/
+    top: 20%;
+}
+
+.page5_card3{
+    position: absolute;
+    left: 10.4%;
+    width: 79.2%; /*507/640*/
+    top: 20%;
+}
+
+
+
+.card1_line1{
+    position: absolute;
+    top: 18%;
+    width: 64%;
+    height: 8%;
+    left: 18%;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: #2F344D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    line-height: 200%;
+    
+    text-indent: 0;
+    letter-spacing: 0em;
+
+
+}
+
+.card1_line2{
+    position: absolute;
+    top: 26%;
+    width: 64%;
+    height: 8%;
+    left: 17%;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: #2F344D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    line-height: 200%;
+    
+    text-indent: 0;
+    letter-spacing: 0em;
+
+}
+
+
+.card2_line1{
+    position: absolute;
+    top: 18%;
+    width: 64%;
+    height: 8%;
+    left: 18%;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: #2F344D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    line-height: 200%;
+    
+    text-indent: 0;
+    letter-spacing: 0em;
+
+
+}
+
+.card2_line2{
+    position: absolute;
+    top: 26%;
+    width: 64%;
+    height: 8%;
+    left: 17%;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: #2F344D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    line-height: 200%;
+    
+    text-indent: 0;
+    letter-spacing: 0em;
+
+}
+
+.card3_line1{
+    position: absolute;
+    top: 18%;
+    width: 64%;
+    height: 8%;
+    left: 18%;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: #2F344D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    line-height: 200%;
+    
+    text-indent: 0;
+    letter-spacing: 0em;
+
+
+}
+
+.card3_line2{
+    position: absolute;
+    top: 26%;
+    width: 64%;
+    height: 8%;
+    left: 17%;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: #2F344D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    line-height: 200%;
+    
+    text-indent: 0;
+    letter-spacing: 0em;
+
+}
+
+
+.page5_share{
+    position: absolute;
+    left: 19.5%;
+    width: 60.9%;
+    top: 80%;   
+}
+
+
+/*朋友圈进入首页*/
+.page8_bgLight{
+    position: absolute;
+    width: 100%;
+    top: 14%;
+}
+
+.page8_draw{
+    position: absolute;
+    left: 19.6%;
+    width: 60.8%;/*389/640*/
+    top: 81%;
+}
+
+.page8_txt{
+    position: absolute;
+    left: 15.8%;
+    width: 68.4%;/*438/640*/
+    top: 68%;
+}
+
+.page8_card1{
+    position: absolute;
+    left: 5.5%;
+    width: 89.1%; /*570/640*/
+    top: 12.5%;
+}
+
+.page8_card2{
+    position: absolute;
+    left: 8.7%;
+    width: 82.6%;/*529/640*/
+    top: 12.5%;
+}
+
+.page8_card3{
+    position: absolute;
+    left: 10.4%;
+    width: 79.2%; /*507/640*/
+    top: 12.5%;
+}
+
+.page8_line1{
+    position: absolute;
+    top: 24%;
+    width: 64%;
+    height: 5%;
+    left: 18%;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: #2F344D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    line-height: 200%;
+    
+    text-indent: 0;
+    letter-spacing: 0em;
+
+
+}
+
+.page8_line2{
+    position: absolute;
+    top: 29%;
+    width: 64%;
+    height: 5%;
+    left: 17%;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: #2F344D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    line-height: 200%;
+    
+    text-indent: 0;
+    letter-spacing: 0em;
+
+}
+.page8_input{
+    position: absolute;
+    left: 7.5%;
+    width: 83%;/*531/640*/
+    top: 71%;
+    z-index: 10001;
+}
+
+#input_mobile2{
+    position:absolute;
+    border:0;
+    left: 0%;
+    top: 9.5%;
+    width: 99%;
+    height: 70%;
+    background-color: transparent;
+    color: #C5BAC6;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 500;
+    z-index: 10012;
+}
+
+
+
+/*活动说明*/
+.pageInfo{
+    position: absolute;
+    width: 100%;
+    top: 0%;
+}
+
+.pageInfo_back{
+    position: absolute;
+    left: 75%;
+    height: 10%;
+    width:23.7% ;/*152/640*/
+    top: 0%;
+}
+
+.info_back{
+    position: absolute;
+    top: 55%;
+    left: 0%;
+}
+
+/*神秘大奖*/
+.pageBag{
+    position: absolute;
+    top: 0%;
+}
+
+.pageBag_btn{
+    position: absolute;
+    top: 77%;
+    left: 26.7%;
+    width: 46.5% ;/*297/640*/
+}
+
+
+
+
+
+
+
+
+.f-fl{float:left}
+.f-fr{float:right}
+.f-cb{clear:both}
+.f-db{display:block}
+.f-dib{display:inline-block}
+.f-hc{display:block;margin-left:auto;margin-right:auto}
+.f-dn{display:none}
+.f-fsi{font-style:italic}
+.f-fwb{font-weight:700}
+.f-cp{cursor:pointer}
+.f-ad0{-webkit-animation-delay:0s;-moz-animation-delay:0s;animation-delay:0s}
+.f-ad1{-webkit-animation-delay:.2s;-moz-animation-delay:0.2s;animation-delay:.2s}
+.f-ad2{-webkit-animation-delay:.4s;-moz-animation-delay:0.4s;animation-delay:.4s}
+.f-ad3{-webkit-animation-delay:.6s;-moz-animation-delay:0.6s;animation-delay:.6s}
+.f-ad4{-webkit-animation-delay:.8s;-moz-animation-delay:0.8s;animation-delay:.8s}
+.f-admine{-webkit-animation-delay:.95s;-moz-animation-delay:0.95s;animation-delay:.95s}
+.f-ad5{-webkit-animation-delay:1s;-moz-animation-delay:1s;animation-delay:1s}
+.f-ad6{-webkit-animation-delay:1.2s;-moz-animation-delay:1.2s;animation-delay:1.2s}
+.f-ad7{-webkit-animation-delay:1.4s;-moz-animation-delay:1.4s;animation-delay:1.4s}
+.f-ad8{-webkit-animation-delay:1.6s;-moz-animation-delay:1.6s;animation-delay:1.6s}
+.f-ad9{-webkit-animation-delay:1.8s;-moz-animation-delay:1.8s;animation-delay:1.8s}
+.f-ad10{-webkit-animation-delay:2s;-moz-animation-delay:2s;animation-delay:2s}
+.f-ad11{-webkit-animation-delay:2.2s;-moz-animation-delay:2.2s;animation-delay:2.2s}
+.f-ad12{-webkit-animation-delay:2.4s;-moz-animation-delay:2.4s;animation-delay:2.4s}
+.f-ad13{-webkit-animation-delay:2.6s;-moz-animation-delay:2.6s;animation-delay:2.6s}
+.f-ad14{-webkit-animation-delay:2.8s;-moz-animation-delay:2.8s;animation-delay:2.8s}
+.f-ad15{-webkit-animation-delay:3s;-moz-animation-delay:3s;animation-delay:3s}
+.f-ad16{-webkit-animation-delay:3.2s;-moz-animation-delay:3.2s;animation-delay:3.2s}
+.f-ad17{-webkit-animation-delay:3.4s;-moz-animation-delay:3.4s;animation-delay:3.4s}
+.f-ad18{-webkit-animation-delay:3.6s;-moz-animation-delay:3.6s;animation-delay:3.6s}
+.f-ad19{-webkit-animation-delay:3.8s;-moz-animation-delay:3.8s;animation-delay:3.8s}
+.f-ad20{-webkit-animation-delay:4s;-moz-animation-delay:4s;animation-delay:4s}
+.f-ad21{-webkit-animation-delay:4.2s;-moz-animation-delay:4.2s;animation-delay:4.2s}
+.f-ad22{-webkit-animation-delay:4.4s;-moz-animation-delay:4.4s;animation-delay:4.4s}
+.f-ad23{-webkit-animation-delay:4.6s;-moz-animation-delay:4.6s;animation-delay:4.6s}
+.f-ad24{-webkit-animation-delay:4.8s;-moz-animation-delay:4.8s;animation-delay:4.8s}
+.f-ann{ 
+    -webkit-animation-name:none!important;
+    -moz-animation-name:none!important;
+    animation-name:none!important;
+    display:none!important
+}
+.f-anii{
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-iteration-count:infinite;
+    animation-iteration-count:infinite;
+}
+.animated{
+    -webkit-animation-duration: .6s;
+    -moz-animation-duration: .6s;
+    animation-duration: .6s;
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0)
+}
+
+
+@-webkit-keyframes bounceDown {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+            transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -10px, 0);
+            transform: translate3d(0, -10px, 0);
+  }
+
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+            transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -5px, 0);
+            transform: translate3d(0, -5px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0,-2px,0);
+            transform: translate3d(0,-2px,0);
+  }
+}
+
+@keyframes bounceDown {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+            transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -10px, 0);
+            transform: translate3d(0, -10px, 0);
+  }
+
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+            transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -5px, 0);
+            transform: translate3d(0, -5px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0,-2px,0);
+            transform: translate3d(0,-2px,0);
+  }
+}
+
+.bounceDown {
+  -webkit-animation-name: bounceDown;
+          animation-name: bounceDown;
+  -webkit-transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom;
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-iteration-count:infinite;
+    animation-iteration-count:infinite;
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s
+}
+
+@-webkit-keyframes fadeOutRight1 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(120%, 0, 0);
+            transform: translate3d(120%, 0, 0);
+  }
+}
+
+@keyframes fadeOutRight1 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(120%, 0, 0);
+            transform: translate3d(120%, 0, 0);
+  }
+}
+
+.fadeOutRight1 {
+  -webkit-animation-name: fadeOutRight1;
+          animation-name: fadeOutRight1;
+  -webkit-animation-duration:1s !important;
+          animation-duration:1s !important;
+}
+
+@-webkit-keyframes fadeInRight1 {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(120%, 0, 0);
+            transform: translate3d(120%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInRight1 {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(120%, 0, 0);
+            transform: translate3d(120%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInRight1 {
+  -webkit-animation-name: fadeInRight1;
+          animation-name: fadeInRight1;
+  -webkit-animation-duration:1s !important;  
+          animation-duration:1s !important; 
+}
+
+
+@-webkit-keyframes fadeInLeft1 {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(-120%, 0, 0);
+            transform: translate3d(-120%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInLeft1 {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(-120%, 0, 0);
+            transform: translate3d(-120%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInLeft1 {
+  -webkit-animation-name: fadeInLeft1;
+          animation-name: fadeInLeft1;
+  -webkit-animation-duration:1s !important;  
+          animation-duration:1s !important;         
+}
+
+@-webkit-keyframes fadeOutLeft1 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(-120%, 0, 0);
+            transform: translate3d(-120%, 0, 0);
+  }
+}
+
+@keyframes fadeOutLeft1 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(-120%, 0, 0);
+            transform: translate3d(-120%, 0, 0);
+  }
+}
+
+.fadeOutLeft1 {
+  -webkit-animation-name: fadeOutLeft1;
+          animation-name: fadeOutLeft1;
+  -webkit-animation-duration:1s !important;  
+          animation-duration:1s !important;     
+}
+
+
+#waiting{
+    position: absolute;
+    color: red;
+    top: 40%;
+    left: 50%;
+    width: 100%;
+}
+
+#waiting_shield{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: #000000;
+    opacity: 0.5;
+    filter:alpha(opacity=50);       /* IE */
+    -moz-opacity:0.5;              /* Moz + FF */
+    z-index: 1000;
+    display: none;
+}
