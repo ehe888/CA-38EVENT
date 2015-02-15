@@ -1,12 +1,3 @@
-body{
-      
-}
-
-body .activity_info{
-    position: absolute;
-    width: 100%;
-    top:0%;
-}
 
 
 /*加载页*/
@@ -30,317 +21,343 @@ body .loading_dot3{
     width: 2.18%; /*14px*/
 }
 
-body .m-screen1 .g-ct  #confirmPhone{
-    background-image: url('../images/confirmPhone.png');
-    width:54.6875%;
-    height: 10.9375% ;/*105/960*/
+/*抽闺蜜红包页*/
+
+.page3_dear{
     position:absolute;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    top:76%;
-    left:22.7%;
-    z-index: 10000;
-}
-
-body .page2_confirm{
-    position: absolute;
-    width: 54.6875%; /*350/640*/
-    top:80%;
-    left: 22.7%;
-    z-index: 10005;
-} 
-
-body .page5_back{
-    position: absolute;
-    width: 54.69%; /*350/640*/
-    top: 73%;
-    left: 22.7%;
-}
-
-body .page6_back{
-    position: absolute;
-    width: 54.69%; /*350/640*/
-    top: 73%;
-    left: 22.7%;
-}
-
-body .usedBtn{
-    position: absolute;
-    width: 54.69%;/*350px*/
-    top: 87%;
-    left: 22.7%;
-    z-index: 10005;
-}
-
-body .activity_btn{
-    position: absolute;
-    width: 54.69%;/*350px*/
-    left: 22.7%;
-    top: 93%;
-}
-index: 10001;
-
-
-
-body .page0_bag{
-    position: absolute;
-    width: 24.85%;/*159/640 */
-    top: 43%;
-    left: 62.5%;
-    z-index: 10001;
-
-}
-
-
-
-body .page0_confirmPhone{
-    position: absolute;
-    width: 54.69%; /*350/640*/
-    left: 23.7%;
-    top: 58%;
+    left: 31.8%;
+    width: 36.4%; /*233/640*/
+    top: 5%;
     z-index: 10001;
 }
 
-body .page0_phoneNumber{
-    position:absolute;
-    
-    top:48.2%;
-    height: 17%;
-    
-    left: 17%;
-    width: 62.66%;
-    /*border-width: thick;
-    border-style: solid;
-    
-    border-color:#F2D340;*/
-}
-
-body .page0_light{
+.page3_myGirl{
     position: absolute;
-    width: 13.75%;/*88/640*/
-    top: 37.5%;
-    left: 79.5%;
+    left: 27.8%;
+    width: 44.4%;/*284/640*/
+    top: 11%;
     z-index: 10002;
 }
 
-body .page0_wish{
+.page3_envelope{
     position: absolute;
-    width: 81.72%;/*523/640*/
-    left: 9.1%;
-    top: 25%;
+    left: 7%;
+    width: 93.3%;/*597/640*/
+    top: 20%;
+    z-index: 10010;
+}
+
+.page3_envelope2{
+    position: absolute;
+    left: 9%;
+    width: 76.2%;/*488/640*/
+    top: 11%;
+}
+
+.page3_letter{
+    position: absolute;
+    left: 9%;
+    width: 75% ;/*480/640*/
+    top: 16%;
+    z-index: 10001;
+}
+
+.page3_secret{
+    position: absolute;
+    left: 50.5%;
+    width: 26.4%; /*169/640*/
+    height: 8%;
+    top: 53.3%;
+    z-index: 10010;
+}
+
+.secret_img{
+    position: absolute;
+    top: 11%;
+    left: 0%;
+}
+
+.page3_drawBtn{
+    position: absolute;
+    left: 19.6%;
+    width: 60.8%;/*389/640*/
+    top: 72.5%;
+}
+
+.page3_txt{
+    position: absolute;
+    left: 26.8%;
+    width: 46.5%;/*297/640*/
+    top: 69.5%;
+}
+
+.page3_phoneNumber{
+    position: absolute;
+    left: 8.4%;
+    width:83.3% ; /*533/640*/
+    top: 60%;
+    z-index: 10011;
+}
+
+/*红包页*/
+.page4_bgLight{
+    position: absolute;
+    width: 100%;
+    top: 9%;
+}
+
+
+.page4_txt1{
+    position: absolute;
+    left: 34%; 
+    width: 36.1%; /*231/640*/
+    top: 15%;
+}
+
+.page4_txt2{
+    position: absolute;
+    left: 22%;
+    width: 56.1%; /*359/640*/
+    top: 56%;
+}
+
+.page4_coupon0{
+    position: absolute;
+    left: 4%;
+    width: 92%;/*589/640*/
+    top:21% ;
+}
+
+.page4_coupon1{
+    position: absolute;
+    left: 70%; 
+    width: 15%; /*96/640*/
+    top: 6%;
+}
+
+.page4_coupon2{
+    position: absolute; ;
+    left: 10%;
+    width: 17.2%;/*110/640*/
+    top: 15%;
+}
+
+.page4_coupon3{
+    position: absolute;
+    left: 70%;
+    width: 17.7%;/*113/640*/
+    top: 49%;
+}
+
+.page4_particles{
+    position: absolute;
+    left: 13.5%;
+    width: 85.1%; /*545/640*/
+    top: 15%;
+}
+
+.page4_creat{
+    position: absolute;
+    left: 19.5%;
+    width: 60.9%;/*390/640*/
+    top: 69%;
+}
+
+.page4_cash{
+    position: absolute;
+    top: 30%;
+    left: 27%;
+    width: 40%;
+    font-size: 7em;
+    font-weight: 600;
+
+    color: #fff;
+    -webkit-text-stroke: 2px #2C3047;
+    text-align: center;
+}
+
+/*贺卡页*/
+.page5_bgLight{
+    position: absolute;
+    width: 100%;
+    top: 9%;
+}
+
+.page5_txt{
+    position:absolute;
+    left: 21.2%;
+    width: 57.7%;/*369/640*/
+    top: 10%;
+}
+
+.page5_arrowR{
+    position: absolute;
+    left: 85%;  
+    width: 11.6%; /*37*2/640*/
+    height: 10%;
+    top: 35%;
     z-index: 10000;
+}
+
+.page5_AR{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    width: 50%;
+}
+
+.page5_arrowL{
+    position: absolute;
+    left: 2%;  
+    width: 11.6%; /*37/640*/
+    height: 10%;
+    top: 35%;
+    z-index: 10000;
+}
+
+.page5_AL{
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 50%;
+}
+
+.page5_cus{
+    position: absolute;
+    left: 38.6%;
+    width: 22.8%; /*146/640*/
+    height: 5%;
+    top: 70%;
+    z-index: 10001;
+}
+
+.cus_img{
+    position: absolute;
+    left: 0%;
+    top: 20%;
+}
+
+.page5_card1{
+    position: absolute;
+    left: 5.5%;
+    width: 89.1%; /*570/640*/
+    top: 15%;
+}
+
+.page5_card2{
+    position: absolute;
+    left: 8.7%;
+    width: 82.6%;/*529/640*/
+    top: 15%;
+}
+
+.page5_card3{
+    position: absolute;
+    left: 10.4%;
+    width: 79.2%; /*507/640*/
+    top: 15%;
+}
+
+
+
+.page5_share{
+    position: absolute;
+    left: 19.5%;
+    width: 60.9%;
+    top: 74%;   
+}
+
+/*朋友圈进入首页*/
+.page8_bgLight{
+    position: absolute;
+    width: 100%;
+    top: 13%;
+}
+
+.page8_draw{
+    position: absolute;
+    left: 19.6%;
+    width: 60.8%;/*389/640*/
+    top: 74%;
+}
+
+
+
+.page8_card1{
+    position: absolute;
+    left: 5.5%;
+    width: 89.1%; /*570/640*/
+    top: 11.5%;
+}
+
+.page8_card2{
+    position: absolute;
+    left: 8.7%;
+    width: 82.6%;/*529/640*/
+    top: 11.5%;
+}
+
+.page8_card3{
+    position: absolute;
+    left: 10.4%;
+    width: 79.2%; /*507/640*/
+    top: 11.5%;
+}
+
+.page8_line1{
+    position: absolute;
+    top: 23%;
+    width: 64%;
+    height: 5%;
+    left: 18%;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: #2F344D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    line-height: 200%;
+    
+    text-indent: 0;
+    letter-spacing: 0em;
+
 
 }
-body .page0_circle{
+
+.page8_line2{
     position: absolute;
-    width: 86.87%; /*556/640*/
-    top: 70%;
-    left: 6.5%;
+    top: 28%;
+    width: 64%;
+    height: 5%;
+    left: 17%;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: #2F344D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    line-height: 200%;
+    
+    text-indent: 0;
+    letter-spacing: 0em;
+
+}
+.page8_input{
+    position: absolute;
+    left: 7.5%;
+    width: 83%;/*531/640*/
+    top: 65%;
     z-index: 10001;
 }
 
 
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen0 .g-ct{
-    background: url('../images/bg01_1.jpg');
-    background-size: 100% 100%;
-}
+/*神秘大奖*/
 
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen1 .g-ct #b-yh{
-    position:absolute;
-    left:14.06%;
-    top: 37.9%;
-    width: 71.87%;
-}
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen1 .g-ct #b-zy{
-    position:absolute;
-    left:14.06%;
-    top: 53.1811%;
-    width: 71.87%;
-}
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen1 .g-ct #b-my{
-    position:absolute;
-    left:14.06%;
-    top: 68.4622%;
-    width: 71.87%;
-}
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen1 .g-ct #b-miyou{
-    position:absolute;
-    left:14.06%;
-    top: 83.7433%;
-    width: 71.87%;
-}
-
-
-body  #slide5 .m-screen5 .g-ct .bg_image{
-    width: 80%;
-	height: 70%;
-    position:absolute;
-    top:1%;left:10%;
-	
-}
-
-body  #slide5 .m-screen5 .g-ct .btn_first{
-    width: 25%;
-    position:absolute;
-    top:72%;left:37.5%;
-}
-
-body  #slide5 .m-screen5 .g-ct .btn_second{
-    width: 38.7%;
-    position:absolute;
-    top:89.4%;left:10%;
-}
-
-body  #slide5 .m-screen5 .g-ct .btn_third{
-    width: 38.7%;
-    position:absolute;
-     top:89.4%;left:51%;
-}
-
-body  #slide5 .m-screen5 .g-ct .btn_forth{
-     width: 38.7%;
-    position:absolute;
-    top:77%;left:10%;
-}
-
-
-body  #slide5 .m-screen5 .g-ct .btn_five{
-       width: 38.7%;
-    position:absolute;
-     top:77%;left:51%;
-}
-
-body  #slide5 .m-screen5 .g-ct .bg_image{
-    width: 80%;
-    position:absolute;
-    top:2%;left:10%;
-	
-}
-
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen0 .g-ct .slideup-hint{
-    position:absolute;
-    left:0;
-    top: 75%;
-	width: 100%;
-	height: 25%;
-	background: url('../images/slideup01.png');
-	background-size:100% 100%;
-}
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen0 .g-ct .slideup-hint .slide-arrow{
-    position:absolute;
-    left: 38.7037%;
-    top:78%;
-    width: 22.5926%;
-    height: 18.9245%;
-    background: url('../images/redarrow.png');
-    background-size: cover;
-}
-
-
-/*body .g-doc .g-bd .swiper-container .swiper-slide .m-screen1 .g-ct #b-yh{
-    position:absolute;
-    left:14%;
-    top: 180px;
-    width: 72%;
-}
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen1 .g-ct #b-zy{
-    position:absolute;
-    left:14%;
-    top: 236px;
-    width: 72%;
-}
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen1 .g-ct #b-my{
-    position:absolute;
-    left:14%;
-    top: 292px;
-    width: 72%;
-}
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen1 .g-ct #b-miyou{
-    position:absolute;
-    left:14%;
-    top: 348px;
-    width: 72%;
-}*/
-/*
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen01 .g-ct{
-    background: url('../images/bg_product_ip4.jpg');
-    background-size: 100% 100%;
-}*/
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen2 .g-ct #bg-yh{
-    position:absolute;
-	background: url('../images/bg_youhuo_ip4_new.jpg');
-	background-size: cover;
-}
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen2 .g-ct #bg-zy{
-    position:absolute;
-	background: url('../images/bg_ziyou_ip4.jpg');
-	background-size: cover;
-}
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen2 .g-ct #bg-my{
-    position:absolute;
-	background: url('../images/bg_manya_ip4.jpg');
-	background-size: cover;
-}
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen2 .g-ct #bg-miyou{
-    position:absolute;
-	background: url('../images/bg_miyou_ip4_v2.jpg');
-	background-size: cover;
-}
-
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen2 .g-ct .slideup-hint{
-    position:absolute;
-    left: 35.3906%;
-    top: 92.55%;
-	width: 29.2188%;
-	height: 7.45%;
-	background: url('../images/whiteHint.png');
-	background-size: cover;
-}
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen2 .g-ct .slideup-hint .slide-arrow{
-    position:absolute;
-    left: 5%;
-    top: 36%;
-    width: 90%;
-    height: 63%;
-    background: url('../images/whiteArrow.png');
-    background-size: cover;
-}
-
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen3 .g-ct #promotion{
-    position:absolute;
-    top:75.18%;
-    left: 0%;
-    width:100%;
-    height:6%;
-	background: url('../images/04_promotion.png');
-	background-size: cover;
-}
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen3 .g-ct .bbar{
-    position:absolute;
-    top:83.18%;
-    left: 0%;
-    width:100%;
-    height:16.82%;
-}
-
-body .g-doc .g-bd .swiper-container .swiper-slide .m-screen4 .g-ct .pick-btn{
-    position:absolute;
-    top: 73%;
-    left: 19.38%;
-    width: 58%;
-    height: 10%;
-    background: url('../images/05_pick_btn.png');
-	background-size: 100% 100%;
+.pageBag_btn{
+    position: absolute;
+    top: 77%;
+    left: 26.7%;
+    width: 46.5% ;/*297/640*/
 }
