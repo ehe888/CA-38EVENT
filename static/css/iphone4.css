@@ -165,8 +165,8 @@ body .loading_dot3{
 
 .page4_cash{
     position: absolute;
-    top: 30%;
-    left: 27%;
+    top: 29%;
+    left: 26.5%;
     width: 40%;
     font-size: 7em;
     font-weight: 600;
@@ -357,7 +357,7 @@ body .loading_dot3{
 
 .pageBag_btn{
     position: absolute;
-    top: 77%;
+    top: 88%;
     left: 26.7%;
     width: 46.5% ;/*297/640*/
 }

@@ -188,6 +188,7 @@ body .percent_symbol{
     left:26% ;
     width: 47.2%; /*302/640*/
     top:17% ;
+    z-index: 10000;
 }
 
 .page1_myGirl{
@@ -197,6 +198,7 @@ body .percent_symbol{
     height: 10.9%;/*111/1016*/
     top: 23%;
     overflow: hidden;
+    z-index: 10000;
    
 }
 
@@ -220,6 +222,7 @@ body .percent_symbol{
     left: 34% ;
     width: 32.3%; /*207/640*/
     top: 34%;
+    z-index: 10000;
 }
 
 .page1_txt1{
@@ -227,6 +230,7 @@ body .percent_symbol{
     left: 22.5%;
     width: 55.3%; /*354/640*/
     top: 41%;
+    z-index: 10000;
 }
 
 .page1_txt2{
@@ -234,6 +238,7 @@ body .percent_symbol{
     left: 28%;
     width: 44.2%; /*283/640*/
     top: 52%;
+    z-index: 10000;
 }
 
 .page1_waterMark{
@@ -248,14 +253,15 @@ body .percent_symbol{
     left: 19.5%;
     width: 60.9%;
     top: 67%;
+    z-index: 10000;
 }
     
 /*回忆插画页*/
 .page2_back{
     position: absolute;
     left: 2%; 
-    width: 11.9%; /*76/640*/
-    top: 2%;
+    width: 22.9%; /*76/640*/
+    top: 3%;
 }
 
 .page2_comic{
@@ -447,7 +453,7 @@ body .percent_symbol{
 .page4_cash{
     position: absolute;
     top: 29%;
-    left: 27%;
+    left: 26.5%;
     width: 40%;
     font-size: 7em;
     font-weight: 600;

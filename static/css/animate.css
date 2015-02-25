@@ -2457,6 +2457,38 @@ Copyright (c) 2014 Daniel Eden
           animation-name: fadeOutUp;
 }
 
+@-webkit-keyframes fadeOutUp0 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes fadeOutUp0 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+}
+
+.fadeOutUp0 {
+  -webkit-animation-name: fadeOutUp0;
+          animation-name: fadeOutUp0;
+  -webkit-animation-duration: 1.25s !important;
+          animation-duration: 1.25s !important;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
 
 @-webkit-keyframes fadeOutUp1 {
   0% {
@@ -2487,6 +2519,8 @@ Copyright (c) 2014 Daniel Eden
           animation-name: fadeOutUp1;
   -webkit-animation-duration: 1s !important;
           animation-duration: 1s !important;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 

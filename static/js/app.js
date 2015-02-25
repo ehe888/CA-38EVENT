@@ -169,7 +169,7 @@ $(function(){
         adaptive();
         $(".loading_page").remove();
         
-        
+        //weixin = 1;
         //微信config
         // wx.config({
         //     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -291,9 +291,9 @@ $(function(){
     //进入插画页
     $(".page1_btn").click(function(e){
          $(".m-screen2").removeClass("animated fadeOutDown1");
-         $(".m-screen1").addClass("animated fadeOutUp1");
+         $(".m-screen1").addClass("animated fadeOutUp1 f-ad1");
          $('.m-screen2').removeClass("f-dn");
-         $(".m-screen2").addClass("animated fadeInUp1");            
+         $(".m-screen2").addClass("animated fadeInUp1 f-ad1" );            
          $(".m-screen2").find(".animated").removeClass("f-ann")
     });
 
@@ -420,7 +420,7 @@ $(function(){
                     $(".page2_comic2").addClass("animated fadeOutUp");
                     $(".m-screen2").addClass("animated fadeOutUp1");               
                     $(".m-screen3").removeClass("f-dn");
-                    $(".m-screen3").addClass("animated fadeInUp1");
+                    $(".m-screen3").addClass("animated fadeInUp1 f-ad1");
                    
                     break;
 
@@ -558,20 +558,22 @@ $(function(){
                 // });  
                 $(".m-screen3").addClass("animated fadeOutUp1");
                 $(".m-screen4").removeClass("f-dn");
-                $(".m-screen4").addClass("animated fadeInUp1");
+                $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
             }
     }); 
   
+    //抽取红包（微信页）
     $(".page8_draw").click(function(){
         $(".m-screen8").addClass("animated fadeOutUp1");
         $(".m-screen4").removeClass("f-dn");
-        $(".m-screen4").addClass("animated fadeInUp1");
+        $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
     });
 
+    //红包页
     $(".page4_creat").click(function(){
         $(".m-screen4").addClass("animated fadeOutUp1");
         $(".m-screen5").removeClass("f-dn");
-        $(".m-screen5").addClass("animated fadeInUp1");
+        $(".m-screen5").addClass("animated fadeInUp1 f-ad1");
     })
 
     //点击选择贺卡
