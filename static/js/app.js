@@ -291,7 +291,7 @@ $(function(){
     //进入插画页
     $(".page1_btn").click(function(e){
          $(".m-screen2").removeClass("animated fadeOutDown1");
-         $(".m-screen1").addClass("animated fadeOutUp1 f-ad1");
+         $(".m-screen1").addClass("animated fadeOutUp1 f-ad1");                
          $('.m-screen2').removeClass("f-dn");
          $(".m-screen2").addClass("animated fadeInUp1 f-ad1" );            
          $(".m-screen2").find(".animated").removeClass("f-ann")
@@ -477,7 +477,7 @@ $(function(){
         var phone = $("#input_mobile").val();
        
         var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
-        phone = 13800138000;
+        //phone = 13800138000;
             if (phone=="" || phoneRex.test(phone)==false || phone.length>11){
                         alert("您输入的手机号有误")
                         //跳出确认手机号方法
