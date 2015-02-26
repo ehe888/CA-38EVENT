@@ -307,6 +307,61 @@ Copyright (c) 2014 Daniel Eden
   -webkit-animation-duration:1.25s !important;        
 }
 
+@-webkit-keyframes arrowDown {
+  
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+            transform: scale3d(1.05, 1.05, 1.05);
+    -webkit-transform: translate3d(0, 12px, 0);
+            transform: translate3d(0, 12px, 0);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes arrowDown {
+ 
+
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+            transform: scale3d(1.05, 1.05, 1.05);
+    -webkit-transform: translate3d(0, 12px, 0);
+            transform: translate3d(0, 12px, 0);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+.arrowDown {
+  -webkit-animation-name: arrowDown;
+          animation-name: arrowDown;
+          animation-duration:1.25s !important;
+  -webkit-animation-duration:1.25s !important;        
+}
 
 
 @-webkit-keyframes rubberBand {

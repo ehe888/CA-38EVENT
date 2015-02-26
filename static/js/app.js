@@ -169,7 +169,7 @@ $(function(){
         adaptive();
         $(".loading_page").remove();
         
-        //weixin = 1;
+        // weixin = 1;
         //微信config
         // wx.config({
         //     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -380,8 +380,8 @@ $(function(){
         //wishIndex = wishIndex%maxIndex;
         console.log(comicIndex);
         if (distanceY > minDistance || distanceY < minDistance*(-1) ) {
-            $(".page2_comic").removeClass("animated fadeOutUp");
-            $(".page2_comic").removeClass("animated fadeInDown");
+            $(".page2_comic0").removeClass("animated fadeOutUp");
+            $(".page2_comic0").removeClass("animated fadeInDown");
             $(".page2_comic1").removeClass("animated fadeInUp");
             $(".page2_comic1").removeClass("animated fadeOutUp");
             $(".page2_comic1").removeClass("animated fadeOutDown");
@@ -398,7 +398,7 @@ $(function(){
             switch(comicIndex){
                 case 0:    
                     $(".page2_comic2").addClass("f-dn");
-                    $(".page2_comic").addClass("animated fadeOutUp");
+                    $(".page2_comic0").addClass("animated fadeOutUp");
                     $(".page2_comic1").removeClass("f-dn");
                     $(".page2_comic1").addClass("animated fadeInUp");
                     
@@ -406,7 +406,7 @@ $(function(){
                     break;
 
                 case 1:
-                    $(".page2_comic").addClass("f-dn");
+                    $(".page2_comic0").addClass("f-dn");
                     $(".page2_comic1").addClass("animated fadeOutUp");
                     $(".page2_comic2").removeClass("f-dn");
                     $(".page2_comic2").addClass("animated fadeInUp");
@@ -439,19 +439,21 @@ $(function(){
 
             switch(comicIndex){
                 case 0:
+                    $(".page2_comic1").addClass("f-dn");
+                    $(".page2_comic2").addClass("f-dn");
                     break;
 
                 case 1:
                     $(".page2_comic2").addClass("f-dn");
                     $(".page2_comic1").addClass("animated fadeOutDown");  
-                    $(".page2_comic").removeClass("f-dn");
-                    $(".page2_comic").addClass("animated fadeInDown");
+                    $(".page2_comic0").removeClass("f-dn");
+                    $(".page2_comic0").addClass("animated fadeInDown");
 
                     comicIndex--;
                     break;
 
                 case 2:
-                    $(".page2_comic").addClass("f-dn");
+                    $(".page2_comic0").addClass("f-dn");
                     $(".page2_comic2").addClass("animated fadeOutDown");  
                     $(".page2_comic1").removeClass("f-dn");
                     $(".page2_comic1").addClass("animated fadeInDown");
@@ -477,7 +479,7 @@ $(function(){
         var phone = $("#input_mobile").val();
        
         var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
-        //phone = 13800138000;
+        phone = 13800138000;
             if (phone=="" || phoneRex.test(phone)==false || phone.length>11){
                         alert("您输入的手机号有误")
                         //跳出确认手机号方法

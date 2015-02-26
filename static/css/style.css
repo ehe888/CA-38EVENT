@@ -169,6 +169,14 @@ body .percent_symbol{
 
 /*首页*/
 
+.page_bg_bot{
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    bottom: 0%;
+    z-index: 1;
+}
+
 .page_info{
     position: absolute;
     left: 75%;
@@ -257,32 +265,59 @@ body .percent_symbol{
 }
     
 /*回忆插画页*/
-.page2_back{
+
+.page2_dear{
     position: absolute;
-    left: 2%; 
-    width: 22.9%; /*76/640*/
-    top: 3%;
+    top: 5%;
+    left: 35%;
+    width: 30.3%; /*194/640*/
+    z-index: 10000;
 }
 
-.page2_comic{
+.page2_myGirl{
     position: absolute;
-    left: 20%;
-    width: 39.1%;/*250/640*/
-    top: 20%;
+    top: 10%;
+    left: 31.5%;
+    width: 36.9%; /*236/640*/
+    z-index:10000 ;
+}
+
+.page2_mp3{
+    position: absolute;
+    left: 82%; 
+    width: 9.4%; /*60/640*/
+    top: 90%;
+    z-index: 10000;
+}
+
+.page2_arrow{
+    position: absolute;
+    left: 44.3%; 
+    width:11.25%; /*72/640*/
+    top: 85%;    
+    z-index: 10000;
+}
+
+
+.page2_comic0{
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    top: 0%;
 }
 
 .page2_comic1{
     position: absolute;
-    left: 20%;
-    width: 39.1%;/*250/640*/
-    top: 20%;
+    left: 0%;
+    width: 100%;
+    top: 0%;
 }
 
 .page2_comic2{
     position: absolute;
-    left: 20%;
-    width: 39.1%;/*250/640*/
-    top: 20%;
+    left: 0%;
+    width: 100%;
+    top: 0%;
 }
 
 .page2_btn{
@@ -354,6 +389,7 @@ body .percent_symbol{
     left: 19.6%;
     width: 60.8%;/*389/640*/
     top: 77.5%;
+    z-index: 10000;
 }
 
 .page3_txt{
@@ -367,10 +403,17 @@ body .percent_symbol{
     position: absolute;
     left: 8.4%;
     width:83.3% ; /*533/640*/
-    top: 65%;
+    height: 10%;
+    top: 64%;
     z-index: 10011;
 }
-
+.page3_input{
+    position: absolute;
+    left: 8.4%;
+    width:83.3% ; /*533/640*/
+    top: 65%;
+    z-index: 10010;   
+}
 #input_mobile{
     position:absolute;
     border:0;
@@ -431,7 +474,7 @@ body .percent_symbol{
 
 .page4_coupon3{
     position: absolute;
-    left: 70%;
+    left: 74%;
     width: 17.7%;/*113/640*/
     top: 54%;
 }
@@ -448,6 +491,7 @@ body .percent_symbol{
     left: 19.5%;
     width: 60.9%;/*390/640*/
     top: 74%;
+    z-index: 10000;
 }
 
 .page4_cash{
@@ -677,6 +721,7 @@ body .percent_symbol{
     left: 19.5%;
     width: 60.9%;
     top: 80%;   
+    z-index: 10000;
 }
 
 
@@ -692,6 +737,7 @@ body .percent_symbol{
     left: 19.6%;
     width: 60.8%;/*389/640*/
     top: 81%;
+    z-index: 10000;
 }
 
 .page8_txt{

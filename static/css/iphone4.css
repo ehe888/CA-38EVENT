@@ -21,6 +21,37 @@ body .loading_dot3{
     width: 2.18%; /*14px*/
 }
 
+
+/*首页*/
+
+.page1_dear{
+    position: absolute;
+    left:26% ;
+    width: 47.2%; /*302/640*/
+    top:13% ;
+    z-index: 10000;
+}
+
+.page1_myGirl{
+    position: absolute;
+    left:20% ;
+    width: 55.5%; /*355/640*/
+    height: 13.9%;/*111/840*/
+    top: 20%;
+    overflow: hidden;
+    z-index: 10001;
+   
+}
+
+/*回忆插画页*/
+.page2_myGirl{
+    position: absolute;
+    top: 11%;
+    left: 31.5%;
+    width: 36.9%; /*236/640*/
+    z-index:10000 ;
+}
+
 /*抽闺蜜红包页*/
 
 .page3_dear{
@@ -67,7 +98,7 @@ body .loading_dot3{
     left: 50.5%;
     width: 26.4%; /*169/640*/
     height: 8%;
-    top: 53.3%;
+    top: 58.1%;
     z-index: 10010;
 }
 
@@ -81,29 +112,39 @@ body .loading_dot3{
     position: absolute;
     left: 19.6%;
     width: 60.8%;/*389/640*/
-    top: 72.5%;
+    top: 79.5%;
+    z-index: 10000;
 }
 
 .page3_txt{
     position: absolute;
     left: 26.8%;
     width: 46.5%;/*297/640*/
-    top: 69.5%;
+    top: 75.5%;
 }
 
 .page3_phoneNumber{
     position: absolute;
     left: 8.4%;
     width:83.3% ; /*533/640*/
-    top: 60%;
+    height: 9%;
+    top: 66%;
     z-index: 10011;
+}
+
+.page3_input{
+    position: absolute;
+    left: 8.4%;
+    width:83.3% ; /*533/640*/
+    top: 66%;
+    z-index: 10010;   
 }
 
 /*红包页*/
 .page4_bgLight{
     position: absolute;
     width: 100%;
-    top: 9%;
+    top: 12%;
 }
 
 
@@ -111,28 +152,28 @@ body .loading_dot3{
     position: absolute;
     left: 34%; 
     width: 36.1%; /*231/640*/
-    top: 15%;
+    top: 16%;
 }
 
 .page4_txt2{
     position: absolute;
     left: 22%;
     width: 56.1%; /*359/640*/
-    top: 56%;
+    top: 66%;
 }
 
 .page4_coupon0{
     position: absolute;
     left: 4%;
     width: 92%;/*589/640*/
-    top:21% ;
+    top:23% ;
 }
 
 .page4_coupon1{
     position: absolute;
     left: 70%; 
     width: 15%; /*96/640*/
-    top: 6%;
+    top: 9%;
 }
 
 .page4_coupon2{
@@ -144,23 +185,24 @@ body .loading_dot3{
 
 .page4_coupon3{
     position: absolute;
-    left: 70%;
+    left: 74%;
     width: 17.7%;/*113/640*/
-    top: 49%;
+    top: 57%;
 }
 
 .page4_particles{
     position: absolute;
     left: 13.5%;
     width: 85.1%; /*545/640*/
-    top: 15%;
+    top: 17%;
 }
 
 .page4_creat{
     position: absolute;
     left: 19.5%;
     width: 60.9%;/*390/640*/
-    top: 69%;
+    top: 82%;
+    z-index: 10000;
 }
 
 .page4_cash{
@@ -180,14 +222,14 @@ body .loading_dot3{
 .page5_bgLight{
     position: absolute;
     width: 100%;
-    top: 9%;
+    top: 12%;
 }
 
 .page5_txt{
     position:absolute;
     left: 21.2%;
     width: 57.7%;/*369/640*/
-    top: 10%;
+    top: 12%;
 }
 
 .page5_arrowR{
@@ -195,7 +237,7 @@ body .loading_dot3{
     left: 85%;  
     width: 11.6%; /*37*2/640*/
     height: 10%;
-    top: 35%;
+    top: 41%;
     z-index: 10000;
 }
 
@@ -211,7 +253,7 @@ body .loading_dot3{
     left: 2%;  
     width: 11.6%; /*37/640*/
     height: 10%;
-    top: 35%;
+    top: 41%;
     z-index: 10000;
 }
 
@@ -227,7 +269,7 @@ body .loading_dot3{
     left: 38.6%;
     width: 22.8%; /*146/640*/
     height: 5%;
-    top: 70%;
+    top: 83%;
     z-index: 10001;
 }
 
@@ -241,21 +283,24 @@ body .loading_dot3{
     position: absolute;
     left: 5.5%;
     width: 89.1%; /*570/640*/
-    top: 15%;
+    top: 19%;
+    z-index: 2;
 }
 
 .page5_card2{
     position: absolute;
     left: 8.7%;
     width: 82.6%;/*529/640*/
-    top: 15%;
+    top: 19%;
+    z-index: 2;
 }
 
 .page5_card3{
     position: absolute;
     left: 10.4%;
     width: 79.2%; /*507/640*/
-    top: 15%;
+    top: 19%;
+    z-index: 2;
 }
 
 
@@ -264,21 +309,23 @@ body .loading_dot3{
     position: absolute;
     left: 19.5%;
     width: 60.9%;
-    top: 74%;   
+    top: 87%;   
+    z-index: 10000;
 }
 
 /*朋友圈进入首页*/
 .page8_bgLight{
     position: absolute;
     width: 100%;
-    top: 13%;
+    top: 15;
 }
 
 .page8_draw{
     position: absolute;
     left: 19.6%;
     width: 60.8%;/*389/640*/
-    top: 74%;
+    top: 89%;
+    z-index: 10000;
 }
 
 
@@ -287,26 +334,29 @@ body .loading_dot3{
     position: absolute;
     left: 5.5%;
     width: 89.1%; /*570/640*/
-    top: 11.5%;
+    top: 14%;
+    z-index: 2;
 }
 
 .page8_card2{
     position: absolute;
     left: 8.7%;
     width: 82.6%;/*529/640*/
-    top: 11.5%;
+    top: 14%;
+    z-index: 2;
 }
 
 .page8_card3{
     position: absolute;
     left: 10.4%;
     width: 79.2%; /*507/640*/
-    top: 11.5%;
+    top: 14%;
+    z-index: 2;
 }
 
 .page8_line1{
     position: absolute;
-    top: 23%;
+    top: 28%;
     width: 64%;
     height: 5%;
     left: 18%;
@@ -321,13 +371,13 @@ body .loading_dot3{
     
     text-indent: 0;
     letter-spacing: 0em;
-
+    z-index: 3;
 
 }
 
 .page8_line2{
     position: absolute;
-    top: 28%;
+    top: 34%;
     width: 64%;
     height: 5%;
     left: 17%;
@@ -342,13 +392,13 @@ body .loading_dot3{
     
     text-indent: 0;
     letter-spacing: 0em;
-
+    z-index: 3;
 }
 .page8_input{
     position: absolute;
     left: 7.5%;
     width: 83%;/*531/640*/
-    top: 65%;
+    top: 78%;
     z-index: 10001;
 }
 
