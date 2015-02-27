@@ -290,18 +290,14 @@ $(function(){
 
     //进入插画页
     $(".page1_btn").click(function(e){
-         $(".m-screen2").removeClass("animated fadeOutDown1");
-         $(".m-screen1").addClass("animated fadeOutUp1 f-ad1");                
+         
+         $(".m-screen1").addClass("animated fadeOut f-ad1");                
          $('.m-screen2').removeClass("f-dn");
-         $(".m-screen2").addClass("animated fadeInUp1 f-ad1" );            
+         $(".m-screen2").addClass("animated fadeInScale f-ad5" );            
          $(".m-screen2").find(".animated").removeClass("f-ann")
     });
 
-    $(".page2_back").click(function(e){
-        $(".m-screen1").removeClass("animated fadeOutUp1");
-        $(".m-screen2").addClass("animated fadeOutDown1");
-        $(".m-screen1").addClass("animated fadeInDown1");
-    });
+ 
    
 
     //滑动漫画
@@ -479,9 +475,10 @@ $(function(){
         var phone = $("#input_mobile").val();
        
         var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
-        phone = 13800138000;
+        // phone = 13800138000;
             if (phone=="" || phoneRex.test(phone)==false || phone.length>11){
-                        alert("您输入的手机号有误")
+                        $(".wrongNumber").removeClass("f-dn");
+                        $(".wrongNumber_btn").removeClass("f-dn");
                         //跳出确认手机号方法
                         return;
             }
@@ -724,33 +721,33 @@ $(function(){
     });
 
     // 编辑自定义文字
-    $(".page5_cus").click(function(){
-        alert("点击文本自定义祝福");
-        switch(cardIndex){
-                case 0:    
-                    document.getElementById("card1_line1").readOnly=false;
-                    document.getElementById("card1_line2").readOnly=false;                                               
-                    break;
+    // $(".page5_cus").click(function(){
+    //     alert("点击文本自定义祝福");
+    //     switch(cardIndex){
+    //             case 0:    
+    //                 document.getElementById("card1_line1").readOnly=false;
+    //                 document.getElementById("card1_line2").readOnly=false;                                               
+    //                 break;
 
-                case 1:
-                    document.getElementById("card2_line1").readOnly=false;
-                    document.getElementById("card2_line2").readOnly=false;   
+    //             case 1:
+    //                 document.getElementById("card2_line1").readOnly=false;
+    //                 document.getElementById("card2_line2").readOnly=false;   
                    
-                    break;
+    //                 break;
 
-                case 2:
-                    document.getElementById("card3_line1").readOnly=false;
-                    document.getElementById("card3_line2").readOnly=false;  
+    //             case 2:
+    //                 document.getElementById("card3_line1").readOnly=false;
+    //                 document.getElementById("card3_line2").readOnly=false;  
                   
-                    break;
+    //                 break;
 
-                default:
+    //             default:
                     
-                    cardIndex =0;
-                    break;
-        }   
+    //                 cardIndex =0;
+    //                 break;
+    //     }   
         
-    });
+    // });
 
 
     // 分享图层
@@ -774,12 +771,16 @@ $(function(){
         $(".pageBag_btn").addClass("f-dn");
     });
    
-
+    // 手机号码输错确认
+    $(".wrongNumber_btn").click(function(){
+        $(".wrongNumber").addClass("f-dn");
+        $(".wrongNumber_btn").addClass("f-dn");
+    })
 
     /* 手机号验证框 */
     
      $(".m-screen3").find(".page3_phoneNumber").on('blur', 'input', function(){
-            if($(this).attr('id') === 'input-mobile' ){
+            if($(this).attr('id') === 'input_mobile' ){
                 if($.trim($(this).val()) === ''){
                     $(this).val('请输入手机号');
                     
@@ -805,7 +806,7 @@ $(function(){
                 }
             }
         }).on('focus', 'input', function(){
-            if($(this).attr('id') === 'input-mobile2' ){
+            if($(this).attr('id') === 'input_mobile2' ){
                 if($.trim($(this).val()) === '请输入手机号'){
                     $(this).val('');
                 }

@@ -252,8 +252,8 @@ body .loading_dot3{
     position: absolute;
     left: 2%;  
     width: 11.6%; /*37/640*/
-    height: 10%;
-    top: 41%;
+    height: 14%;
+    top: 40%;
     z-index: 10000;
 }
 
@@ -264,14 +264,14 @@ body .loading_dot3{
     width: 50%;
 }
 
-.page5_cus{
+.page5_gesture{
     position: absolute;
-    left: 38.6%;
-    width: 22.8%; /*146/640*/
-    height: 5%;
-    top: 83%;
-    z-index: 10001;
+    width: 10.47%; /*67/640*/
+    top: 50%;
+    left: 89%;
+    z-index: 3;
 }
+
 
 .cus_img{
     position: absolute;
@@ -308,8 +308,8 @@ body .loading_dot3{
 .page5_share{
     position: absolute;
     left: 19.5%;
-    width: 60.9%;
-    top: 87%;   
+    width: 53.28%; /*341px*/
+    top: 84%;   
     z-index: 10000;
 }
 
@@ -410,4 +410,12 @@ body .loading_dot3{
     top: 88%;
     left: 26.7%;
     width: 46.5% ;/*297/640*/
+}
+
+/*错误号码提示*/
+.wrongNumber_btn{
+    position: absolute;
+    top: 36%;
+    left: 27%;
+    width: 45.62%; /*292px*/
 }

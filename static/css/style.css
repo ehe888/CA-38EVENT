@@ -183,6 +183,7 @@ body .percent_symbol{
     width: 22.34%; /*143/640*/
     height: 10%;    
     top:2%;
+    z-index: 1;
 }
 
 .info_img{
@@ -282,13 +283,7 @@ body .percent_symbol{
     z-index:10000 ;
 }
 
-.page2_mp3{
-    position: absolute;
-    left: 82%; 
-    width: 9.4%; /*60/640*/
-    top: 90%;
-    z-index: 10000;
-}
+
 
 .page2_arrow{
     position: absolute;
@@ -525,8 +520,8 @@ body .percent_symbol{
     position: absolute;
     left: 84%;  
     width: 17.3%; /*37*3/640*/
-    height: 10%;
-    top: 40%;
+    height: 14%;
+    top: 39%;
     z-index: 10000;
 }
 
@@ -553,13 +548,28 @@ body .percent_symbol{
     width: 33%;
 }
 
+.page5_gesture{
+    position: absolute;
+    width: 10.47%; /*67/640*/
+    top: 49%;
+    left: 89%;
+    z-index: 1;
+}
+
+.page5_arrowC{
+    position: absolute;
+    top: 38%;
+    left: 57%;
+    width: 8.66%; /*49px*/
+    z-index: 1;
+}
+
 .page5_cus{
     position: absolute;
-    left: 38.6%;
-    width: 22.8%; /*146/640*/
-    height: 5%;
-    top: 75%;
-    z-index: 10001;
+    top: 41%;
+    left: 66%;
+    width: 14.75%; /*80px*/
+    z-index: 1;
 }
 
 .cus_img{
@@ -719,7 +729,7 @@ body .percent_symbol{
 .page5_share{
     position: absolute;
     left: 19.5%;
-    width: 60.9%;
+    width: 53.28%; /*341px*/
     top: 80%;   
     z-index: 10000;
 }
@@ -864,12 +874,25 @@ body .percent_symbol{
 
 .pageBag_btn{
     position: absolute;
-    top: 70%;
+    top: 75%;
     left: 26.7%;
     width: 46.5% ;/*297/640*/
 }
 
+/*手机号错误浮层*/
+.wrongNumber{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+}
 
+.wrongNumber_btn{
+    position: absolute;
+    top: 30%;
+    left: 27%;
+    width: 45.62%; /*292px*/
+}
 
 
 
