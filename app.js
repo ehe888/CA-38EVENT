@@ -9,6 +9,7 @@ var urlencode = require('urlencode');
 var crypto = require('crypto');
 var url = require('url');
 var sleep = require('sleep');
+var util = require("util");
 
 
 var config = require("./config")();
@@ -176,7 +177,75 @@ if(!config.debug){
 */
 app.get('/', function(req, res, next) {
     var sharedby = req.query.sharedby,
-        shareid = req.query.shareid; //the unique shareing id that can help us to get shared content and title
+        shareid = req.query.shareid, //the unique shareing id that can help us to get shared content and title
+        mobile = req.query.mobile; 
+    var openid = req.cookies.openid;
+    /*if sharedby is not null then 
+     check if the user has been send 50 bonus, if not send 50 bonus to him/her */
+    if(sharedby && openid){
+        pg.connect(conString, function(err, client, done) {
+            if(err) {
+                console.error('error get connection from pool', err);
+                return next(err);
+            }
+            
+            client.query("select * from bonus_record where sharedby=$1 or ", [sharedby], 
+                        function(err, result){
+                done(); 
+                if(err) {  
+                  console.error('error running query', err);
+                  next(err);
+                  return;
+                }
+                        
+                if(result.rows.length === 0 ){
+                    //first time bonus hit, insert into bonus_record
+                    pg.connect(conString, function(err, client, done) {
+                        if(err) {
+                            return next(err);
+                        }
+                        client.query('BEGIN', function(err) {
+                            if(err) return rollback(client, done);
+
+                            process.nextTick(function() {
+                                var text = "INSERT INTO bonus_record(mobile, openid, sharedby, shareid) " 
+                                    + "VALUES($1, $2, $3, $4)";
+                                client.query(text, [mobile, openid, sharedby, shareid], 
+                                    function(err) {
+                                        if(err) return rollback(client, done);
+                                        
+                                        client.query('COMMIT', done);
+                                        //if insert success then send 50 yuan short message
+                                        var rawString = util.format("mobile=%s&promo_type=2", config.debug ? '13764211365' : input.mobile.trim());
+                        
+                                        var hmac = crypto.createHmac('sha256', config.smsAppSecret);
+                                        hmac.update(rawString);
+                                        var smsSign = hmac.digest();
+                                        
+                                        request.post({
+                                                url: config.smsGateway,
+                                                form: {
+                                                    mobile: config.debug ? '13764211365' : input.mobile.trim(),
+                                                    promo_type: 2,
+                                                    sign: smsSign
+                                                }
+                                            }, function(err, res, bd){
+                                                if(err){
+                                                    console.error(err);
+                                                    //TODO: If there is any error we'd better save the record into recover pool
+                                                }
+                                                console.log("send 50 sms without error the result => " + bd);
+                                            }
+                                        );
+                                });
+                            });
+                        });
+                    });
+                }
+            });
+        });
+    }
+     
     
     var jsTicketUrl = "http://" + config.jsTicketHost + ":" + app.get('port') + "/jsticket";
     request.get(jsTicketUrl, function(err, response, body){
@@ -207,7 +276,7 @@ app.get('/', function(req, res, next) {
                 
         res.cookie('jsticket', jsticketCookie, { maxAge: (parseInt(ticketInfo.expires_at) - Date.now()/1000 - 60*5) * 1000 });
         
-        //res.render('index', {});
+        
         
         res.sendFile(path.join(__dirname, config.debug ? './static' : './release', 'home.html'));
     });
@@ -401,6 +470,29 @@ app.post('/lottery', function(req, res, next){
                         /*if success send sms */
                         console.log("===> send 25 yuan sms to the mobile");
                         
+                        var rawString = util.format("mobile=%s&promo_type=1", config.debug ? '13764211365' : input.mobile.trim());
+                        
+                        var hmac = crypto.createHmac('sha256', config.smsAppSecret);
+                        hmac.update(rawString);
+                        var smsSign = hmac.digest();
+                        
+                        request.post({
+                                url: config.smsGateway,
+                                form: {
+                                    mobile: config.debug ? '13764211365' : input.mobile.trim(),
+                                    promo_type: 1,
+                                    sign: smsSign
+                                }
+                            }, function(err, res, bd){
+                                if(err){
+                                    console.error(err);
+                                    //TODO: If there is any error we'd better save the record into recover pool
+                                }
+                                console.log("send sms without error the result => " + bd);
+                                
+                            }
+                        );
+                        
                         return res.json({
                             success: true,
                             data: result
@@ -421,7 +513,8 @@ app.post('/shareInfos', function(req, res, next) {
         sharedby : input.sharedby,
         title : input.title,
         content : input.content,
-        value: input.value
+        value: input.value,
+        mobile: input.mobile
     }
     console.log("share infos : " + JSON.stringify(data));
     
@@ -436,9 +529,9 @@ app.post('/shareInfos', function(req, res, next) {
             }
 
             process.nextTick(function() {
-                var text = "INSERT INTO share_info(openid, shareid, sharedby, title, content, value)" 
-                    + "VALUES($1, $2, $3, $4, $5, $6)";
-                client.query(text, [data.openid, data.shareid, data.sharedby, data.title, data.content, data.value], 
+                var text = "INSERT INTO share_info(openid, shareid, sharedby, title, content, value, mobile)" 
+                    + "VALUES($1, $2, $3, $4, $5, $6, $7)";
+                client.query(text, [data.openid, data.shareid, data.sharedby, data.title, data.content, data.value, data.mobile], 
                     function(err) {
                         console.error(err);
                         if(err) return rollback(client, done);
@@ -477,6 +570,7 @@ app.get('/originUser', function(req, res, next){
             if(result.rows.length === 0 ){
                 return res.json({});
             }
+            
             return res.json(result.rows[0]);
         });
     });
