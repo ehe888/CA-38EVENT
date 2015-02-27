@@ -204,7 +204,7 @@ loadimg(pics,function(w){
 
 //分享各个参数初始化
 var shareUrl = "http://" + window.location.host + "?sharedby=" + openid 
-             + "&shareid=" + shareid + "&utm_source=share&utm_medium=share&utm_campaign=CNYsocial",
+             + "&shareid=" + shareid + "&mobile=" + phone + "&utm_source=share&utm_medium=share&utm_campaign=CNYsocial",
     shareImg = "http://" + window.location.host + '/images/logo.png',
     random = Math.random(),
     title = random<0.5?'这个三八节怎么过最幸胡？和闺蜜来C&A让扮靓～':'妇女节我最大！邀闺蜜齐享C&A三八壕气折扣～';
@@ -235,6 +235,7 @@ function weixinShare(){
                     sharedby: sharedBy,
                     value: cardIndex,
                     title: title,
+                    mobile: phone,
                     content:""
                 },
                 success:function(responseObj){
@@ -271,6 +272,7 @@ function weixinShare(){
                     sharedby: sharedBy,
                     value: cardIndex,
                     title: title,
+                    mobile: phone,
                     content:""
                 },
                 success: function(responseObj){
@@ -503,9 +505,11 @@ var swipeDirection2 = function(tsPoint,tePoint){
 
 }
 
+var phone;
+
 //抽取红包(验证手机号)
 $(".page3_drawBtn").click(function(e){
-    var phone = $("#input_mobile").val();
+    phone = $("#input_mobile").val();
 
     var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
     // phone = 13800138000;
