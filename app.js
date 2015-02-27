@@ -212,8 +212,10 @@ app.get('/', function(req, res, next) {
                                     + "VALUES($1, $2, $3, $4)";
                                 client.query(text, [mobile, openid, sharedby, shareid], 
                                     function(err) {
-                                        if(err) return rollback(client, done);
-                                        
+                                        if(err) {
+                                            console.error(err);
+                                            return rollback(client, done);
+                                        }
                                         client.query('COMMIT', done);
                                         //if insert success then send 50 yuan short message
                                         var rawString = util.format("mobile=%s&promo_type=2", config.debug ? '13764211365' : input.mobile.trim());
