@@ -189,7 +189,7 @@ app.get('/', function(req, res, next) {
                 return next(err);
             }
             
-            client.query("select * from bonus_record where sharedby=$1 or ", [sharedby], 
+            client.query("select * from bonus_record where sharedby=$1", [sharedby], 
                         function(err, result){
                 done(); 
                 if(err) {  
