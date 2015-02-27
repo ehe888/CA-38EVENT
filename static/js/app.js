@@ -55,8 +55,23 @@ function GetRequest() {
 function adaptive(){
     var w = $(window).width();
     $("body").css("font-size", 62.5 * w  / 320+"%");
-    // console.log("devicew="+w);
 }
+
+// 禁止文版被拖动
+document.body.style.userSelect = 'none';
+document.body.style.mozUserSelect = 'none';
+document.body.style.webkitUserSelect = 'none';
+
+//禁止图片被选中
+document.onselectstart = new Function('event.returnValue=false;');
+//禁止图片被拖动
+document.ondragstart = new Function('event.returnValue=false;');
+
+$(window).on('touchmove.scroll', function (e) {e.preventDefault();});
+$(window).on('scroll.scroll',function (e) {e.preventDefault();});
+
+
+
 
 function loadimg(pics, progressCallBack, completeCallback) {
     $(".loading_page").find(".animated").removeClass("f-dn");
@@ -103,19 +118,11 @@ $(function(){
      * progressCallBack 加载中回调函数
      * completeCallback 图片加载完成回调函数
      */
-     $(".m-progress").removeClass("f-dn");
+    $(".m-progress").removeClass("f-dn");
 
     var weixin = 0,
-        firstA = 0;
-        firstPrize = 1,
         usedNumber = 0,
-        tooLate = 0,
-        totalSharedValue = 0,
-        myShareValue = 0,
-        myTotalShareValue = 0,
-        lotteryValue = 0;
-        
-    var cardIndex = 0;
+        cardIndex = 0;
     //点击发送手机号
     var clicked = 0;
     var pics = new Array();
@@ -162,8 +169,7 @@ $(function(){
         adaptive();
         $(".loading_page").remove();
         
-       
-        
+        // weixin = 1;
         //微信config
         // wx.config({
         //     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -175,78 +181,38 @@ $(function(){
         // });
         if(weixin === 1){
             $(".m-screen8").removeClass("f-dn");
-            //获取原分享人头像
-            $.ajax({
-                url:'/originUser?shareid='+originShareId,
-                type:'GET',
-                dataType:'json',
-                success:function(response){
-                    var shareTitle = response.title;
-                    var shareContent = response.content;
-                    myShareValue = parseInt(response.value || 0);
-                    myTotalShareValue = 200 - myShareValue;
+            //获取原分享人贺卡和祝福
+            // $.ajax({
+            //     url:'/originUser?shareid='+originShareId,
+            //     type:'GET',
+            //     dataType:'json',
+            //     success:function(response){
+            //         var shareTitle = response.title;
+            //         var shareContent = response.content;
+            //         myShareValue = parseInt(response.value || 0);
+            //         myTotalShareValue = 200 - myShareValue;
 
-                    $(".page0_cash").html(myTotalShareValue);
-                    if(shareTitle.length === 0){
-                        $(".page0_wishCus").removeClass("f-dn");
-                        $("#page0_wishC").html(shareContent);
-                    }  
-                    else{
-                        $(".page0_wishText").removeClass("f-dn");
-                        $("#page0_wishTitle").html(shareTitle);
-                        $("#page0_wish").html(shareContent);
-                    }
-                    $(".profile0_image").attr("src",response.headimgurl);
-                    $(".page0_shareId").html(response.nickname);
+            //         $(".page0_cash").html(myTotalShareValue);
+            //         if(shareTitle.length === 0){
+            //             $(".page0_wishCus").removeClass("f-dn");
+            //             $("#page0_wishC").html(shareContent);
+            //         }  
+            //         else{
+            //             $(".page0_wishText").removeClass("f-dn");
+            //             $("#page0_wishTitle").html(shareTitle);
+            //             $("#page0_wish").html(shareContent);
+            //         }
+            //         $(".profile0_image").attr("src",response.headimgurl);
+            //         $(".page0_shareId").html(response.nickname);
                     
 
-                    $.ajax({
-                        url:'/users?sharedby='+sharedBy,
-                        type:'GET',
-                        dataType:'json',
-                        success:function(response){
-                            //console.log(response);
-                            
-                            if($.isArray(response) && response.length > 0){
-                                
-                                for(var i=0; i < 4; i++){
-                                    var j = i+1;
-                                    
-                                    
-                                    if (response[i]) {                        
-                                        $(".profile" + j + "_image").attr("src",response[i].headimgurl);
-                                        $(".profile" + j + "_shareId").html(response[i].nickname);
-                                        $(".profile" + j + "_cash").html(parseInt(response[i].value));
-                                        $(".profile" + j ).removeClass("f-dn");
-                                    }
-                                }
-
-                                for(var i=0; i<response.length; i++){
-                                    totalSharedValue += parseInt(response[i].value);
-                                }
-
-                            }else{
-                                //显示您是第一个抢红包的朋友
-                                $(".page0_firstA").removeClass("f-dn");
-                                
-                            }
-                                //红包已抢完  
-                            if(totalSharedValue>=myTotalShareValue){
-                                $('.lateInfo').removeClass("f-dn");
-                                $('.lateBtn').removeClass("f-dn");
-                            }
-                        }
-
-                    });
                     
-                }
-            });
+                    
+            //     }
+            // });
            
-            //TODO: 通过Ajax调用 /users, 获得有多少好友已经抢过福袋，然后再进行处理
-            if(firstA == 1){
-                $(".page0_firstA").removeClass("f-dn");
-                $(".page0_circle").addClass("f-dn");
-            }
+            //TODO: 通过Ajax调用 /users,
+           
         }
         else{
              $(".m-screen1").removeClass("f-dn");
@@ -268,74 +234,7 @@ $(function(){
     //微信分享朋友，分享朋友圈逻辑
     function weixinShare(){
         var arrayIndex = cardIndex;
-        if (arrayIndex<=-100) 
-        {
-            arrayIndex = 3;
-        };
-
-        // wx.onMenuShareAppMessage({
-        //         title: title, // 分享标题
-        //         desc: wishContent[arrayIndex], // 分享描述
-        //         link: shareUrl, // 分享链接
-        //         imgUrl: shareImg, // 分享图标
-        //         success: function () { 
-        //             //tracking
-        //             ga('send', 'event', 'CNY-friends', 'success', 'click');
-                    
-        //             // 用户确认分享后执行的回调函数
-        //             //分享成功后调用后台接口
-        //             $.ajax({
-        //                 url: '/shareInfos',
-        //                 type: 'post',
-        //                 dataType: 'json',
-        //                 data: {
-        //                     openid: openid,
-        //                     shareid: shareid,
-        //                     sharedby: sharedBy,
-        //                     value: lotteryValue,
-        //                     title:wishTitleContent[wishIndex<=-100?3:wishIndex],
-        //                     content:wishContent[wishIndex<=-100?3:wishIndex]
-        //                 },
-        //                 success:function(responseObj){
-        //                     // alert(response.success);
-        //                 }
-        //             }); 
-        //         },
-        //         cancel: function () { 
-        //             // 用户取消分享后执行的回调函数
-        //         }
-        //     });
-            //分享给朋友圈
-            // wx.onMenuShareTimeline({
-            //     title: title, // 分享标题
-            //     desc:wishContent[wishIndex<=-100?3:wishIndex],
-            //     link: shareUrl, // 分享链接
-            //     imgUrl:shareImg, // 分享图标
-            //     success: function () { 
-            //         //tracking
-            //         ga('send', 'event', 'CNY-social', 'success', 'click');
-                    
-            //         // 用户确认分享后执行的回调函数
-            //         $.ajax({
-            //             url: '/shareInfos',
-            //             type: 'post',
-            //             dataType: 'json',
-            //             data: {
-            //                 openid: openid,
-            //                 shareid: shareid,
-            //                 sharedby: sharedBy,
-            //                 title:wishTitleContent[wishIndex<=-100?3:wishIndex],
-            //                 content:wishContent[wishIndex<=-100?3:wishIndex]
-            //             },
-            //             success:function(responseObj){
-            //                 // alert(response.success);
-            //             }
-            //         });
-            //     },
-            //     cancel: function () { 
-            //         // 用户取消分享后执行的回调函数
-            //     }
-            // });
+        
     }
 
 
@@ -360,45 +259,17 @@ $(function(){
         deviceWidth = $(window).width(),
         deviceHeight = $(window).height();
 
-
-
     var  infoMasked = !1;
         
-        
-    var themeSrc = "images/poster-mobile-A.png";
-    var themeSrc2 = "images/poster-mobile-A_1.jpg";
-    
-    var content;
-
     //iphone4适应
      if (IsIphone4()==true) {
-        
-        $(".page0_ip4").attr("src", "images/page0_bg_origin.jpg");
-        $(".page1_ip4").attr("src", "images/page1_bg_origin.jpg");
-        $(".page2_ip4").attr("src", "images/page2_bg_origin.jpg");
-        $(".page3_ip4").attr("src", "images/page3_bg_origin.jpg");
-        $(".page4_ip4").attr("src", "images/page3_bg_origin.jpg");
-        $(".loading_ip4").attr("src","images/loading_image.jpg");
-        $(".usedNumber_ip4").attr("src","images/usedNumber_origin.png");
-        $(".campInfo_ip4").attr("src","images/campInfo_origin.jpg");
-        $(".confirmWish_ip4").attr("src","images/confirmWish_origin.png");
-        $(".lateInfo_ip4").attr("src","images/lateInfo_origin.png");
-
-
+      
+        $(".campInfo_ip4").attr("src","images/pageInfo_ip4.jpg");
+        $(".page_bg_ip4").attr("src","images/page_bg_ip4.jpg");
+       
     };
 
-    // 禁止文版被拖动
-    document.body.style.userSelect = 'none';
-    document.body.style.mozUserSelect = 'none';
-    document.body.style.webkitUserSelect = 'none';
-
-    //禁止图片被选中
-    document.onselectstart = new Function('event.returnValue=false;');
-    //禁止图片被拖动
-    document.ondragstart = new Function('event.returnValue=false;');
-
-    $(window).on('touchmove.scroll', function (e) {e.preventDefault();});
-    $(window).on('scroll.scroll',function (e) {e.preventDefault();});
+    
     
     // 活动说明
     $(".page_info").click(function(e){
@@ -419,18 +290,14 @@ $(function(){
 
     //进入插画页
     $(".page1_btn").click(function(e){
-         $(".m-screen2").removeClass("animated fadeOutDown1");
-         $(".m-screen1").addClass("animated fadeOutUp1");
+         
+         $(".m-screen1").addClass("animated fadeOut f-ad1");                
          $('.m-screen2').removeClass("f-dn");
-         $(".m-screen2").addClass("animated fadeInUp1");            
+         $(".m-screen2").addClass("animated fadeInScale f-ad5" );            
          $(".m-screen2").find(".animated").removeClass("f-ann")
     });
 
-    $(".page2_back").click(function(e){
-        $(".m-screen1").removeClass("animated fadeOutUp1");
-        $(".m-screen2").addClass("animated fadeOutDown1");
-        $(".m-screen1").addClass("animated fadeInDown1");
-    });
+ 
    
 
     //滑动漫画
@@ -509,8 +376,8 @@ $(function(){
         //wishIndex = wishIndex%maxIndex;
         console.log(comicIndex);
         if (distanceY > minDistance || distanceY < minDistance*(-1) ) {
-            $(".page2_comic").removeClass("animated fadeOutUp");
-            $(".page2_comic").removeClass("animated fadeInDown");
+            $(".page2_comic0").removeClass("animated fadeOutUp");
+            $(".page2_comic0").removeClass("animated fadeInDown");
             $(".page2_comic1").removeClass("animated fadeInUp");
             $(".page2_comic1").removeClass("animated fadeOutUp");
             $(".page2_comic1").removeClass("animated fadeOutDown");
@@ -527,7 +394,7 @@ $(function(){
             switch(comicIndex){
                 case 0:    
                     $(".page2_comic2").addClass("f-dn");
-                    $(".page2_comic").addClass("animated fadeOutUp");
+                    $(".page2_comic0").addClass("animated fadeOutUp");
                     $(".page2_comic1").removeClass("f-dn");
                     $(".page2_comic1").addClass("animated fadeInUp");
                     
@@ -535,7 +402,7 @@ $(function(){
                     break;
 
                 case 1:
-                    $(".page2_comic").addClass("f-dn");
+                    $(".page2_comic0").addClass("f-dn");
                     $(".page2_comic1").addClass("animated fadeOutUp");
                     $(".page2_comic2").removeClass("f-dn");
                     $(".page2_comic2").addClass("animated fadeInUp");
@@ -549,7 +416,7 @@ $(function(){
                     $(".page2_comic2").addClass("animated fadeOutUp");
                     $(".m-screen2").addClass("animated fadeOutUp1");               
                     $(".m-screen3").removeClass("f-dn");
-                    $(".m-screen3").addClass("animated fadeInUp1");
+                    $(".m-screen3").addClass("animated fadeInUp1 f-ad1");
                    
                     break;
 
@@ -568,19 +435,21 @@ $(function(){
 
             switch(comicIndex){
                 case 0:
+                    $(".page2_comic1").addClass("f-dn");
+                    $(".page2_comic2").addClass("f-dn");
                     break;
 
                 case 1:
                     $(".page2_comic2").addClass("f-dn");
                     $(".page2_comic1").addClass("animated fadeOutDown");  
-                    $(".page2_comic").removeClass("f-dn");
-                    $(".page2_comic").addClass("animated fadeInDown");
+                    $(".page2_comic0").removeClass("f-dn");
+                    $(".page2_comic0").addClass("animated fadeInDown");
 
                     comicIndex--;
                     break;
 
                 case 2:
-                    $(".page2_comic").addClass("f-dn");
+                    $(".page2_comic0").addClass("f-dn");
                     $(".page2_comic2").addClass("animated fadeOutDown");  
                     $(".page2_comic1").removeClass("f-dn");
                     $(".page2_comic1").addClass("animated fadeInDown");
@@ -601,23 +470,109 @@ $(function(){
         
     }
 
-    //抽取红包
-    $(".page3_drawBtn").click(function(){
-        $(".m-screen3").addClass("animated fadeOutUp1");
-        $(".m-screen4").removeClass("f-dn");
-        $(".m-screen4").addClass("animated fadeInUp1");
-    });
+    //抽取红包(验证手机号)
+    $(".page3_drawBtn").click(function(e){
+        var phone = $("#input_mobile").val();
+       
+        var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
+        // phone = 13800138000;
+            if (phone=="" || phoneRex.test(phone)==false || phone.length>11){
+                        $(".wrongNumber").removeClass("f-dn");
+                        $(".wrongNumber_btn").removeClass("f-dn");
+                        //跳出确认手机号方法
+                        return;
+            }
+            else if(!clicked){
+                clicked = 1;
+                // $.ajax({
 
+                // url: '/lottery',
+                // type: 'post',
+                // dataType: 'json',
+                // data: { 
+                //     mobile: phone,
+                //     openid:openid,
+                //     shareid:shareid,
+                //     sharedby:sharedBy
+                // }, 
+
+                //     if(data.success) 
+                //     {
+
+
+                //         console.log("value: "+data.data.value + "code: "+data.data.code);
+                //         lotteryValue = parseInt(data.data.value);
+                //         if (lotteryValue == 888) 
+                //         {
+                //             firstPrize = 1;
+                //             lotteryValue = 200;
+                //         }
+                //         else{
+                //             firstPrize = 0;
+                //             $(".page3_cash1").html(lotteryValue);
+                //             $(".page3_cash2").html(200-lotteryValue);
+                //             $(".page5_cash").html(lotteryValue);
+                //         }
+                    
+        
+                //         $('.m-screen1').addClass("animated fadeOutUp1");
+
+                //         if(firstPrize==0){
+
+                //             $('.draw-screen1').removeClass("f-dn");
+                //             $('.draw-screen1').addClass("animated f-ad1 fadeInUp1")
+                //             $(".draw-screen1").find(".animated").removeClass("f-ann")
+
+                //         }
+                //         else{
+                //             $('.draw-screen2').removeClass("f-dn"); 
+                //             $('.draw-screen2').addClass("animated f-ad1 fadeInUp1")
+                //             $(".draw-screen2").find(".animated").removeClass("f-ann")
+                //         }                                                        
+                        
+                //     }
+                //     else{
+                //         if (data.errorCode === 'PHONE_USED') 
+                //         {
+                //             $('.usedNumber').removeClass("f-dn");
+                //             $('.usedBtn').removeClass("f-dn");
+
+                //             clicked = 0;
+
+                //         }
+                //         else if (data.errorCode === 'OVER') 
+                //         {
+                //             //活动结束
+                //             $('.lateInfo').removeClass("f-dn");
+                //             $('.lateBtn').removeClass("f-dn");
+                //             clicked = 0;
+                //         }else{
+                //             clicked = 0;    
+                //         };
+                //     }
+                // },
+                // error:function(data){
+                //     clicked = 0;
+                // }
+                // });  
+                $(".m-screen3").addClass("animated fadeOutUp1");
+                $(".m-screen4").removeClass("f-dn");
+                $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
+            }
+    }); 
+  
+    //抽取红包（微信页）
     $(".page8_draw").click(function(){
         $(".m-screen8").addClass("animated fadeOutUp1");
         $(".m-screen4").removeClass("f-dn");
-        $(".m-screen4").addClass("animated fadeInUp1");
+        $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
     });
 
+    //红包页
     $(".page4_creat").click(function(){
         $(".m-screen4").addClass("animated fadeOutUp1");
         $(".m-screen5").removeClass("f-dn");
-        $(".m-screen5").addClass("animated fadeInUp1");
+        $(".m-screen5").addClass("animated fadeInUp1 f-ad1");
     })
 
     //点击选择贺卡
@@ -643,7 +598,7 @@ $(function(){
                 case 0:    
 
                     $(".page5_card1").addClass("animated fadeOutRight1");
-                    
+                    $(".page5_card1").removeClass("f-ad2");
 
                     $(".page5_card2").removeClass("f-ann");
                     $(".page5_card2").addClass("animated fadeInLeft1");
@@ -714,7 +669,7 @@ $(function(){
                 case 0:    
 
                     $(".page5_card1").addClass("animated fadeOutLeft1");
-                    
+                    $(".page5_card1").removeClass("f-ad2");
 
                     $(".page5_card3").removeClass("f-ann");
                     $(".page5_card3").addClass("animated fadeInRight1");
@@ -766,32 +721,33 @@ $(function(){
     });
 
     // 编辑自定义文字
-    $(".page5_cus").click(function(){
-        switch(cardIndex){
-                case 0:    
-                    document.getElementById("card1_line1").readOnly=false;
-                    document.getElementById("card1_line2").readOnly=false;                                               
-                    break;
+    // $(".page5_cus").click(function(){
+    //     alert("点击文本自定义祝福");
+    //     switch(cardIndex){
+    //             case 0:    
+    //                 document.getElementById("card1_line1").readOnly=false;
+    //                 document.getElementById("card1_line2").readOnly=false;                                               
+    //                 break;
 
-                case 1:
-                    document.getElementById("card2_line1").readOnly=false;
-                    document.getElementById("card2_line2").readOnly=false;   
+    //             case 1:
+    //                 document.getElementById("card2_line1").readOnly=false;
+    //                 document.getElementById("card2_line2").readOnly=false;   
                    
-                    break;
+    //                 break;
 
-                case 2:
-                    document.getElementById("card3_line1").readOnly=false;
-                    document.getElementById("card3_line2").readOnly=false;  
+    //             case 2:
+    //                 document.getElementById("card3_line1").readOnly=false;
+    //                 document.getElementById("card3_line2").readOnly=false;  
                   
-                    break;
+    //                 break;
 
-                default:
+    //             default:
                     
-                    cardIndex =0;
-                    break;
-        }   
+    //                 cardIndex =0;
+    //                 break;
+    //     }   
         
-    });
+    // });
 
 
     // 分享图层
@@ -802,6 +758,7 @@ $(function(){
     $(".sharePage").click(function(){
         $(".share-screen").addClass("f-dn");
     });
+
 
     //神秘大奖浮层
     $(".page3_secret").click(function(){
@@ -814,182 +771,57 @@ $(function(){
         $(".pageBag_btn").addClass("f-dn");
     });
    
-    /* 微信进入首页 */
-    
-     $(".m-screen1").find(".page2_phoneNumber").on('blur', 'input', function(){
-            if($(this).attr('id') === 'input-mobile' ){
-                if($.trim($(this).val()) === ''){
-                    $(this).val('输入手机号马上抢福袋!');
-                    
-                }
-            }
-        }).on('focus', 'input', function(){
-            if($(this).attr('id') === 'input-mobile' ){
-                if($.trim($(this).val()) === '输入手机号马上抢福袋!'){
-                    $(this).val('');
-                }
-            } 
-        });
+    // 手机号码输错确认
+    $(".wrongNumber_btn").click(function(){
+        $(".wrongNumber").addClass("f-dn");
+        $(".wrongNumber_btn").addClass("f-dn");
+    })
 
-     $(".m-screen01").find(".page0_phoneNumber").on('blur', 'input', function(){
-            if($(this).attr('id') === 'input-mobile2' ){
+    /* 手机号验证框 */
+    
+     $(".m-screen3").find(".page3_phoneNumber").on('blur', 'input', function(){
+            if($(this).attr('id') === 'input_mobile' ){
                 if($.trim($(this).val()) === ''){
-                    $(this).val('输入手机号来抢ta的福袋!');
+                    $(this).val('请输入手机号');
                     
                 }
             }
         }).on('focus', 'input', function(){
-            if($(this).attr('id') === 'input-mobile2' ){
-                if($.trim($(this).val()) === '输入手机号来抢ta的福袋!'){
+            if($(this).attr('id') === 'input_mobile' ){
+                if($.trim($(this).val()) === '请输入手机号'){
                     $(this).val('');
                 }
             } 
         });
 
 
-    $("#confirmPhone").click(function(e){
-        var phone = $("#input-mobile").val();
-       
-        var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
 
-            if (phone=="" || phoneRex.test(phone)==false || phone.length>11){
-                        alert("您输入的手机号有误")
-                        //跳出确认手机号方法
-                        return;
-            }
-            else if(!clicked){
-                clicked = 1;
-               
-        
-                        $('.m-screen1').addClass("animated fadeOutUp1");
 
-                        if(firstPrize==0){
 
-                            $('.draw-screen1').removeClass("f-dn");
-                            $('.draw-screen1').addClass("animated f-ad1 fadeInUp1")
-                            $(".draw-screen1").find(".animated").removeClass("f-ann")
-
-                        }
-                        else{
-                            $('.draw-screen2').removeClass("f-dn"); 
-                            $('.draw-screen2').addClass("animated f-ad1 fadeInUp1")
-                            $(".draw-screen2").find(".animated").removeClass("f-ann")
-                        }                                                        
-                        
-                
-            }
-
-        
-  
-
-    }); 
-
-    $(".page0_confirmPhone").click(function(e){
-
-        var phone = $("#input-mobile2").val();
-       
-        var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
-        console.log(phone);
-
-            if (phone=="" || phoneRex.test(phone)==false || phone.length>11){
-                        alert("您输入的手机号有误")
-            }
-            else if(!clicked){
-                clicked = 1;
-                $.ajax({
-                url: '/lottery',
-                type: 'post',
-                dataType: 'json',
-                data: { 
-                    mobile: phone,
-                    openid: openid,
-                    shareid: shareid,
-                    sharedby: sharedBy
-                },
-                success:function(data){
-                    if (data.success) 
-
-                    {
-                        // console.log("value: "+data.data.value + "code: "+data.data.code);
-                        lotteryValue = parseInt(data.data.value);
-                        if (lotteryValue == 888) 
-                        {
-                            firstPrize = 1;
-                            lotteryValue = 200;
-                        }
-                        else{
-                            firstPrize = 0;
-                            $(".page3_cash1").html(parseInt(data.data.value));
-                            $(".page3_cash2").html(200-parseInt(data.data.value));
-                            $(".page5_cash").html(parseInt(data.data.value));
-                        }
-                                             
-                        $('.m-screen01').addClass("animated fadeOutUp1");
-
-                        if(firstPrize==0){
-
-                            $('.draw-screen1').removeClass("f-dn");
-                            $('.draw-screen1').addClass("animated f-ad1 fadeInUp1")
-                            $(".draw-screen1").find(".animated").removeClass("f-ann")
-
-                        }
-                        else{
-                            $('.draw-screen2').removeClass("f-dn"); 
-                            $('.draw-screen2').addClass("animated f-ad1 fadeInUp1")
-                            $(".draw-screen2").find(".animated").removeClass("f-ann")
-                        }
-    
-                    }
-                    else{
-
-                        if (data.errorCode == 'PHONE_USED') 
-                        {
-                            $('.usedNumber').removeClass("f-dn");
-                            $('.usedBtn').removeClass("f-dn");
-                            clicked = 0;
-                        }
-                        else if (data.errorCode == 'OVER') 
-                        {
-                            //活动结束
-                            $('.lateInfo').removeClass("f-dn");
-                            $('.lateBtn').removeClass("f-dn");
-                        }else{
-			                  clicked = 0;
-			            };
-                    }
-                },
-                error:function(data){
-                    clicked = 0;
+     $(".m-screen8").find(".page8_input").on('blur', 'input', function(){
+            if($(this).attr('id') === 'input_mobile2' ){
+                if($.trim($(this).val()) === ''){
+                    $(this).val('请输入手机号');
+                    
                 }
-                });
             }
-        
-    }); 
+        }).on('focus', 'input', function(){
+            if($(this).attr('id') === 'input_mobile2' ){
+                if($.trim($(this).val()) === '请输入手机号'){
+                    $(this).val('');
+                }
+            } 
+        });
+
 
     
-
-    $('.usedBtn').click(function(e){
-        $('.usedNumber').addClass("f-dn");
-        $('.usedBtn').addClass("f-dn");
-    })
-
-    $('.lateBtn').click(function(e){
-        $('.lateInfo').addClass("f-dn");
-        $('.lateBtn').addClass("f-dn");
-        $(".m-screen01").addClass("f-dn");
-        $(".m-screen0").removeClass("f-dn");
-        $(".m-screen0").find(".animated").removeClass("f-ann");
-    })
 
     
 
   
 
    
-    //分享
-    $(".sharePage").click(function(e){
-        $(".share-screen").addClass("f-dn");
-    })
+    
 
     //显示waiting
     function showWaiting(){
@@ -1006,11 +838,11 @@ $(function(){
     showWaiting();
 
 // trackingCode    
-    $(".track_data").click(function(){
-        var track = $(this).attr("track");
-        var data = $(this).attr("track-data");
-        ga('send','event','CNY-social',track,data);
-    })
+//     $(".track_data").click(function(){
+//         var track = $(this).attr("track");
+//         var data = $(this).attr("track-data");
+//         ga('send','event','CNY-social',track,data);
+//     })
 });
     
 

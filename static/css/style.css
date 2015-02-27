@@ -169,12 +169,21 @@ body .percent_symbol{
 
 /*首页*/
 
+.page_bg_bot{
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    bottom: 0%;
+    z-index: 1;
+}
+
 .page_info{
     position: absolute;
     left: 75%;
     width: 22.34%; /*143/640*/
     height: 10%;    
     top:2%;
+    z-index: 1;
 }
 
 .info_img{
@@ -188,13 +197,33 @@ body .percent_symbol{
     left:26% ;
     width: 47.2%; /*302/640*/
     top:17% ;
+    z-index: 10000;
 }
 
 .page1_myGirl{
     position: absolute;
     left:20% ;
     width: 55.5%; /*355/640*/
+    height: 10.9%;/*111/1016*/
     top: 23%;
+    overflow: hidden;
+    z-index: 10000;
+   
+}
+
+.myGirl_img{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.fadingEffect{
+    position: absolute;
+    top: 23%;
+    left: 26%;
+    width: 55.5%;
+    height: 10%;
+    background-color: white;   
 }
 
 .page1_txt0{
@@ -202,6 +231,7 @@ body .percent_symbol{
     left: 34% ;
     width: 32.3%; /*207/640*/
     top: 34%;
+    z-index: 10000;
 }
 
 .page1_txt1{
@@ -209,6 +239,7 @@ body .percent_symbol{
     left: 22.5%;
     width: 55.3%; /*354/640*/
     top: 41%;
+    z-index: 10000;
 }
 
 .page1_txt2{
@@ -216,6 +247,7 @@ body .percent_symbol{
     left: 28%;
     width: 44.2%; /*283/640*/
     top: 52%;
+    z-index: 10000;
 }
 
 .page1_waterMark{
@@ -230,35 +262,57 @@ body .percent_symbol{
     left: 19.5%;
     width: 60.9%;
     top: 67%;
+    z-index: 10000;
 }
     
 /*回忆插画页*/
-.page2_back{
+
+.page2_dear{
     position: absolute;
-    left: 2%; 
-    width: 11.9%; /*76/640*/
-    top: 2%;
+    top: 5%;
+    left: 35%;
+    width: 30.3%; /*194/640*/
+    z-index: 10000;
 }
 
-.page2_comic{
+.page2_myGirl{
     position: absolute;
-    left: 20%;
-    width: 39.1%;/*250/640*/
-    top: 20%;
+    top: 10%;
+    left: 31.5%;
+    width: 36.9%; /*236/640*/
+    z-index:10000 ;
+}
+
+
+
+.page2_arrow{
+    position: absolute;
+    left: 44.3%; 
+    width:11.25%; /*72/640*/
+    top: 85%;    
+    z-index: 10000;
+}
+
+
+.page2_comic0{
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    top: 0%;
 }
 
 .page2_comic1{
     position: absolute;
-    left: 20%;
-    width: 39.1%;/*250/640*/
-    top: 20%;
+    left: 0%;
+    width: 100%;
+    top: 0%;
 }
 
 .page2_comic2{
     position: absolute;
-    left: 20%;
-    width: 39.1%;/*250/640*/
-    top: 20%;
+    left: 0%;
+    width: 100%;
+    top: 0%;
 }
 
 .page2_btn{
@@ -330,6 +384,7 @@ body .percent_symbol{
     left: 19.6%;
     width: 60.8%;/*389/640*/
     top: 77.5%;
+    z-index: 10000;
 }
 
 .page3_txt{
@@ -343,10 +398,17 @@ body .percent_symbol{
     position: absolute;
     left: 8.4%;
     width:83.3% ; /*533/640*/
-    top: 65%;
+    height: 10%;
+    top: 64%;
     z-index: 10011;
 }
-
+.page3_input{
+    position: absolute;
+    left: 8.4%;
+    width:83.3% ; /*533/640*/
+    top: 65%;
+    z-index: 10010;   
+}
 #input_mobile{
     position:absolute;
     border:0;
@@ -407,7 +469,7 @@ body .percent_symbol{
 
 .page4_coupon3{
     position: absolute;
-    left: 70%;
+    left: 74%;
     width: 17.7%;/*113/640*/
     top: 54%;
 }
@@ -424,12 +486,13 @@ body .percent_symbol{
     left: 19.5%;
     width: 60.9%;/*390/640*/
     top: 74%;
+    z-index: 10000;
 }
 
 .page4_cash{
     position: absolute;
-    top: 35%;
-    left: 27%;
+    top: 29%;
+    left: 26.5%;
     width: 40%;
     font-size: 7em;
     font-weight: 600;
@@ -455,24 +518,24 @@ body .percent_symbol{
 
 .page5_arrowR{
     position: absolute;
-    left: 85%;  
-    width: 11.6%; /*37*2/640*/
-    height: 10%;
-    top: 40%;
+    left: 84%;  
+    width: 17.3%; /*37*3/640*/
+    height: 14%;
+    top: 39%;
     z-index: 10000;
 }
 
 .page5_AR{
     position: absolute;
     top: 20%;
-    left: 50%;
-    width: 50%;
+    left: 40%;
+    width: 33%;
 }
 
 .page5_arrowL{
     position: absolute;
-    left: 2%;  
-    width: 11.6%; /*37/640*/
+    left: 0%;  
+    width: 17.3%; /*37/640*/
     height: 10%;
     top: 40%;
     z-index: 10000;
@@ -481,17 +544,32 @@ body .percent_symbol{
 .page5_AL{
     position: absolute;
     top: 20%;
-    left: 10%;
-    width: 50%;
+    left: 15%;
+    width: 33%;
+}
+
+.page5_gesture{
+    position: absolute;
+    width: 10.47%; /*67/640*/
+    top: 49%;
+    left: 89%;
+    z-index: 1;
+}
+
+.page5_arrowC{
+    position: absolute;
+    top: 38%;
+    left: 57%;
+    width: 8.66%; /*49px*/
+    z-index: 1;
 }
 
 .page5_cus{
     position: absolute;
-    left: 38.6%;
-    width: 22.8%; /*146/640*/
-    height: 5%;
-    top: 75%;
-    z-index: 10001;
+    top: 41%;
+    left: 66%;
+    width: 14.75%; /*80px*/
+    z-index: 1;
 }
 
 .cus_img{
@@ -651,8 +729,9 @@ body .percent_symbol{
 .page5_share{
     position: absolute;
     left: 19.5%;
-    width: 60.9%;
+    width: 53.28%; /*341px*/
     top: 80%;   
+    z-index: 10000;
 }
 
 
@@ -668,6 +747,7 @@ body .percent_symbol{
     left: 19.6%;
     width: 60.8%;/*389/640*/
     top: 81%;
+    z-index: 10000;
 }
 
 .page8_txt{
@@ -768,6 +848,7 @@ body .percent_symbol{
     position: absolute;
     width: 100%;
     top: 0%;
+    z-index: 10011;
 }
 
 .pageInfo_back{
@@ -776,6 +857,7 @@ body .percent_symbol{
     height: 10%;
     width:23.7% ;/*152/640*/
     top: 0%;
+    z-index: 10011;
 }
 
 .info_back{
@@ -792,12 +874,25 @@ body .percent_symbol{
 
 .pageBag_btn{
     position: absolute;
-    top: 77%;
+    top: 75%;
     left: 26.7%;
     width: 46.5% ;/*297/640*/
 }
 
+/*手机号错误浮层*/
+.wrongNumber{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+}
 
+.wrongNumber_btn{
+    position: absolute;
+    top: 30%;
+    left: 27%;
+    width: 45.62%; /*292px*/
+}
 
 
 
@@ -852,9 +947,9 @@ body .percent_symbol{
     animation-iteration-count:infinite;
 }
 .animated{
-    -webkit-animation-duration: .6s;
-    -moz-animation-duration: .6s;
-    animation-duration: .6s;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    animation-duration: 1.5s;
     -webkit-transform: translate3d(0,0,0);
     -moz-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0)
@@ -1062,6 +1157,25 @@ body .percent_symbol{
           animation-name: fadeOutLeft1;
   -webkit-animation-duration:1s !important;  
           animation-duration:1s !important;     
+}
+
+
+@-webkit-keyframes showHide { /* Chrome, Safari */
+    0% {width:0%}
+    40% {width:40%}
+    60% {width:60%;}
+    100% {width:55.5%;}
+}
+
+@keyframes showHide {
+    0% {width:0%}
+    40% {width:40%}
+    60% {width:60%;}
+    100% {width:55.5%;}
+}
+.showHide {
+    -webkit-animation-name: showHide;
+            animation-name: showHide;
 }
 
 
