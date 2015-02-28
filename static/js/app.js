@@ -238,7 +238,7 @@ function weixinShare(){
 
     wx.onMenuShareAppMessage({
         title: title, // 分享标题
-        desc: "", // 分享描述
+        desc: "致闺蜜，和你在一起", // 分享描述
         link: shareUrl, // 分享链接
         imgUrl: shareImg, // 分享图标
         success: function () { 
@@ -277,7 +277,7 @@ function weixinShare(){
     //分享给朋友圈
     wx.onMenuShareTimeline({
         title: title, // 分享标题
-        desc: "",
+        desc: "致闺蜜，和你在一起",
         link: shareUrl, // 分享链接
         imgUrl:shareImg, // 分享图标
         success: function () { 
@@ -769,6 +769,9 @@ $(".page3_gesture").click(function(){
 // 分享图层
 $(".page5_share").click(function(){
     $(".share-screen").removeClass("f-dn");
+    wishLine1=$("#card"+wishIndex+"_line1").val();
+    wishLine2=$("#card"+wishIndex+"_line2").val();
+    weixinShare();//重新初始化分享接口，动态改变分享描述
 });
 
 $(".sharePage").click(function(){
