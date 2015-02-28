@@ -426,7 +426,7 @@ body .loading_dot3{
 
 .page8_gesture{
     position: absolute;
-    width: 10.47%; /*67/640*/
+    width: 7%; /*67/640*/
     top: 62%;
     left: 45%;
     z-index: 10011;
