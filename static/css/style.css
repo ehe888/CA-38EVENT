@@ -426,10 +426,10 @@ body .percent_symbol{
 #input_mobile{
     position:absolute;
     border:0;
-    left: 0%;
+    left: 1%;
     top: 9.5%;
-    width: 99%;
-    height: 70%;
+    width: 92.5%;
+    height: 65%;
     background-color: transparent;
     color: #C5BAC6;
     font-size: 1.5em;
@@ -843,10 +843,10 @@ body .percent_symbol{
 #input_mobile2{
     position:absolute;
     border:0;
-    left: 0%;
+    left: 1%;
     top: 9.5%;
-    width: 99%;
-    height: 70%;
+    width: 92.5%;
+    height: 65%;
     background-color: transparent;
     color: #C5BAC6;
     font-size: 1.5em;
