@@ -213,6 +213,7 @@ var shareUrl = "http://" + window.location.host + "?sharedby=" + openid
 //微信分享朋友，分享朋友圈逻辑
 function weixinShare(){
     var arrayIndex = cardIndex;
+    var phone = $("#input_mobile").val();
     
     wx.onMenuShareAppMessage({
         title: title, // 分享标题
@@ -505,11 +506,10 @@ var swipeDirection2 = function(tsPoint,tePoint){
 
 }
 
-var phone;
 
 //抽取红包(验证手机号)
 $(".page3_drawBtn").click(function(e){
-    phone = $("#input_mobile").val();
+    var phone = $("#input_mobile").val();
 
     var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
     // phone = 13800138000;
