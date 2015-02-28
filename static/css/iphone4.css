@@ -434,3 +434,12 @@ body .loading_dot3{
     left: 27%;
     width: 45.62%; /*292px*/
 }
+
+/*重复号码提示*/
+.usedNumber_btn{
+    position: absolute;
+    top: 40%;
+    left: 27%;
+    width: 45.62%; /*292px*/ 
+}
+

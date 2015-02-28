@@ -909,8 +909,20 @@ body .percent_symbol{
 }
 
 
+/*手机号码重复*/
+.usedNumber{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+}
 
-
+.usedNumber_btn{
+    position: absolute;
+    top: 34%;
+    left: 27%;
+    width: 45.62%; /*292px*/ 
+}
 
 
 .f-fl{float:left}

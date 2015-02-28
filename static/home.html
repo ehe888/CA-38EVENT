@@ -52,7 +52,7 @@
                 <div class="page1_waterMark animated fadeInStamp f-ad6">
                     <img src="images/page1_waterMark.png" width="100%">
                 </div>
-                <div class="page1_btn animated flipInX f-ad2">
+                <div class="page1_btn track_data animated flipInX f-ad2" track='start' track-data='click'>
                     <img src="images/page1_btn.png" width="100%" alt="">
                 </div>
 
@@ -146,7 +146,7 @@
                <div class="page3_input">
                     <img src="images/page3_input.png" width="100%">
               </div>  
-              <div class="page3_drawBtn track_data" track='' track-data=''>
+              <div class="page3_drawBtn track_data" track='participation' track-data='click'>
                   <img src="images/page3_drawBtn.png" width="100%">
               </div>
             </div>               
@@ -189,7 +189,7 @@
                 <div class="page4_particles animated zoomIn2 f-ad3">
                     <img src="images/page4_particles.png" width="100%">
                 </div>
-                <div class="page4_creat">
+                <div class="page4_creat track_data" track='card start' track-data='click'>
                     <img src="images/page4_creat.png" width="100%">
                 </div>
           
@@ -255,7 +255,7 @@
 
                 
                
-                <div class="page5_share track_data" track='' track-data=''>
+                <div class="page5_share track_data" track='success' track-data='click'>
                     <img class="page5_shareBtn" src="images/page5_share.png" width="100%" alt="">
                 </div>
                               
@@ -279,13 +279,13 @@
                   <img class="info_img" src="images/page_info.png" width="100%" alt="">
                 </div>
                 
-                <div class="page8_draw track_data" track='participation' track-data='click'>  
+                <div class="page8_draw track_data" track='re-participation' track-data='click'>  
                   <img src="images/page3_drawBtn.png" width="100%" alt="">
                 </div>
 
    
 
-                <div class="page8_card1">
+                <div class="page8_card1 f-ann">
                     <img src="images/page5_card1.png" width="100%">                    
                 </div>
                 <div class="page8_card2 f-ann">
@@ -347,7 +347,15 @@
       <img src="images/wrongNumber.png" width="100%" alt="">
   </div> 
   <div class="wrongNumber_btn f-dn">
-    <img src="images/wrongNumber_btn.png" width="100%" alt="">
+      <img src="images/wrongNumber_btn.png" width="100%" alt="">
+  </div>
+
+  <!-- 提示重复号码 -->
+  <div class="usedNumber f-dn">
+      <img src="images/usedNumber.png" width="100%" alt="">
+  </div>
+  <div class="usedNumber_btn f-dn">
+      <img src="images/wrongNumber_btn.png" width="100%" alt="">
   </div>
 
   <!--  加载页 -->
@@ -382,39 +390,16 @@
   
   
 
-<!-- 提示抽到福袋信息 -->
-  <!-- <div class="page_check f-dn">
-      <img class="preload" src="images/page_check.png" width="100%" alt="">
-  </div> 
 
-  <div class="page_checkBtn f-dn track_data" track='confirm' track-data='click'>
-     <img src="images/page_checkBtn.png" width="100%" alt="">
-  </div>  --> 
-
-<!-- 提示号码已注册 -->
- <!--  <div class="usedNumber f-dn">
-      <img class="usedNumber_ip4" src="images/usedNumber.png" width="100%" alt="">
-  </div>
-  <div class="usedBtn f-dn track_data" track='again' track-data='click'> 
-      <img src="images/usedBtn.png" width="100%" alt="">
-  </div> -->
-
-  <!-- 提示活动已结束   -->
-  <!-- <div class="lateInfo f-dn">
-      <img class="lateInfo_ip4" src="images/lateInfo.png" width="100%" alt="">
-  </div>
-  <div class="lateBtn f-dn">
-      <img src="images/lateBtn.png" width="100%" alt="">
-  </div> -->
   
 <script>
-// (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-// (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-// m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-// })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-// ga('create', 'UA-58892162-1', 'auto');
-// ga('send', 'pageview');
+ga('create', 'UA-58892162-1', 'auto');
+ga('send', 'pageview');
 
 </script>
 <!-- build:js1  js/3pl.js -->

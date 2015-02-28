@@ -139,9 +139,9 @@ var jsapiTicket = $.cookie("jsticket"),
 
 
 //自定义祝福语
-var wishLine1 = ["乍见之欢，久处不腻，","匆匆那些年，有笑也有泪，","我的世界，",""];
+var wishLine1 = "乍见之欢，久处不腻，";
 
-var wishLine2 = ["闺蜜大过天!","我们永远不说再见~","因你而暖暖~",""]; 
+var wishLine2 = "闺蜜大过天!"; 
 
 //获取url中 shareid参数作为shareby
 var Request = GetRequest(),
@@ -192,6 +192,22 @@ loadimg(pics,function(w){
                 var cardIndex = parseInt(response.value || 0);
                 //TODO: 袁叶浩把分享后的导入页面内容加进来
                 //alert(shareTitle + "  " + shareContent + "   " + cardIndex);
+                document.getElementById("page8_line1").value = shareTitle;
+                document.getElementById("page8_line2").value = shareContent;
+                switch(cardIndex){
+                    case 1:
+                        $(".page8_card1").removeClass("f-dn");
+                        break;
+                    case 2:
+                        $(".page8_card2").removeClass("f-dn");
+                        break;
+                    case 3:
+                        $(".page8_card3").removeClass("f-dn");
+                        break;
+                    default:
+                        break;    
+                }
+
             }
         });
     }
@@ -208,14 +224,21 @@ function weixinShare(){
     
     //分享各个参数初始化
     var shareUrl = "http://" + window.location.host + "?sharedby=" + openid 
-             + "&shareid=" + shareid + "&mobile=" + phone + "&utm_source=share&utm_medium=share&utm_campaign=CNYsocial",
-    shareImg = "http://" + window.location.host + '/images/logo.png',
+             + "&shareid=" + shareid + "&mobile=" + phone + "&utm_source=share&utm_medium=share&utm_campaign=38social",
+    shareImg = "http://" + window.location.host + '/images/icon.jpg',
     random = Math.random(),
-    title = random<0.5?'这个三八节怎么过最幸胡？和闺蜜来C&A让扮靓～':'妇女节我最大！邀闺蜜齐享C&A三八壕气折扣～';
     
+    if(random<0.33){
+        title ='什么鬼？没有闺蜜折扣怎么幸福过三八！';
+    }else if (random>=0.33&&random<0.66) {
+        title ='理想中的妇女节，就该这个样子！';
+    }else if (random>=0.66) {
+        title ='比男票壁咚还更让人小鹿乱撞的三八节！';
+    };
+
     wx.onMenuShareAppMessage({
-        title: "", // 分享标题
-        desc: title, // 分享描述
+        title: title, // 分享标题
+        desc: "", // 分享描述
         link: shareUrl, // 分享链接
         imgUrl: shareImg, // 分享图标
         success: function () { 
@@ -232,10 +255,11 @@ function weixinShare(){
                     openid: openid,
                     shareid: shareid,
                     sharedby: sharedBy,
-                    value: cardIndex,
-                    title: title,
+                    value: wishIndex,
+                    title: wishLine1,
                     mobile: phone,
-                    content:""
+                    content:wishLine2
+                    
                 },
                 success:function(responseObj){
                     alert(response.success);
@@ -252,8 +276,8 @@ function weixinShare(){
     });
     //分享给朋友圈
     wx.onMenuShareTimeline({
-        title: "", // 分享标题
-        desc: title,
+        title: title, // 分享标题
+        desc: "",
         link: shareUrl, // 分享链接
         imgUrl:shareImg, // 分享图标
         success: function () { 
@@ -269,10 +293,10 @@ function weixinShare(){
                     openid: openid,
                     shareid: shareid,
                     sharedby: sharedBy,
-                    value: cardIndex,
-                    title: title,
+                    value: wishIndex,
+                    title: wishLine1,
                     mobile: phone,
-                    content:""
+                    content:wishLine2
                 },
                 success: function(responseObj){
                     // alert(response.success);
@@ -343,6 +367,7 @@ $(".page1_btn").click(function(e){
 //滑动漫画
 var comicIndex=0,
     maxIndex=3,
+    wishIndex=0,
     minDistance = 30;
 
 var tsPoint = {
@@ -358,12 +383,6 @@ var tePoint = {
 var swpieDistance = function(point1,point2){
     var distanceX = tePoint.x - tsPoint.x;
     var distanceY = tePoint.y - tsPoint.y;
-
-
-
-    if(comicIndex<0){
-        wishIndex = wishIndex+maxIndex;
-    }
 
     //console.log("distanceX:"+distanceX+",distanceY:"+distanceY);
 
@@ -431,7 +450,7 @@ var swipeDirection2 = function(tsPoint,tePoint){
                 $(".page2_comic0").addClass("animated fadeOutUp");
                 $(".page2_comic1").removeClass("f-dn");
                 $(".page2_comic1").addClass("animated fadeInUp");
-
+                ga('send', 'event', '38social', 'swap1', 'click');
                 comicIndex++;                               
                 break;
 
@@ -440,7 +459,7 @@ var swipeDirection2 = function(tsPoint,tePoint){
                 $(".page2_comic1").addClass("animated fadeOutUp");
                 $(".page2_comic2").removeClass("f-dn");
                 $(".page2_comic2").addClass("animated fadeInUp");
-
+                ga('send', 'event', '38social', 'swap2', 'click');
                 comicIndex++;
 
                 break;
@@ -451,6 +470,7 @@ var swipeDirection2 = function(tsPoint,tePoint){
                 $(".m-screen2").addClass("animated fadeOutUp1");               
                 $(".m-screen3").removeClass("f-dn");
                 $(".m-screen3").addClass("animated fadeInUp1 f-ad1");
+                ga('send', 'event', '38social', 'swap3', 'click');
 
                 break;
 
@@ -541,7 +561,8 @@ $(".page3_drawBtn").click(function(e){
                     $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
                 }
                 else{
-                    //todo: add failure process logic
+                    $(".usedNumber").removeClass("f-dn");
+                    $(".usedNumber_btn").removeClass("f-dn");
                 }
             },
             error:function(data){
@@ -554,9 +575,50 @@ $(".page3_drawBtn").click(function(e){
 
 //抽取红包（微信页）
 $(".page8_draw").click(function(){
-    $(".m-screen8").addClass("animated fadeOutUp1");
-    $(".m-screen4").removeClass("f-dn");
-    $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
+    phone = $("#input_mobile2").val();
+    var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
+    // phone = 13800138000;
+    if (phone=="" || phoneRex.test(phone)==false || phone.length>11){
+        $(".wrongNumber").removeClass("f-dn");
+        $(".wrongNumber_btn").removeClass("f-dn");
+        //跳出确认手机号方法
+        return;
+    }
+    else if(!clicked){
+        clicked = 1;
+        $.ajax({
+           url: '/lottery',
+           type: 'post',
+           dataType: 'json',
+           data: { 
+               mobile: phone,
+               openid:openid,
+               shareid:shareid,
+               sharedby:sharedBy
+           }, 
+           success: function(data){
+                clicked = 0;
+                console.dir(data);     
+                if(data.success) 
+                {
+                    console.log("value: "+data.data.value + "code: "+data.data.code);
+                    lotteryValue = 25;
+                    $(".m-screen8").addClass("animated fadeOutUp1");
+                    $(".m-screen4").removeClass("f-dn");
+                    $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
+                }
+                else{
+                    $(".usedNumber").removeClass("f-dn");
+                    $(".usedNumber_btn").removeClass("f-dn");
+                }
+            },
+            error:function(data){
+                clicked = 0;
+            }
+        });  
+
+    }  
+  
 });
 
 //红包页
@@ -616,6 +678,9 @@ $(".page5_arrowR").click(function(e){
     if(cardIndex<0){
         cardIndex = cardIndex+3;
     }
+    wishIndex = cardIndex+1;
+    wishLine1=$("#card"+wishIndex+"_line1").val();
+    wishLine2=$("#card"+wishIndex+"_line2").val();
     weixinShare();//重新初始化分享接口，动态改变分享描述
 });
 
@@ -689,6 +754,9 @@ $(".page5_arrowL").click(function(e){
     if(cardIndex<0){
         cardIndex = cardIndex+3;
     }
+    wishIndex = cardIndex+1;
+    wishLine1=$("#card"+wishIndex+"_line1").val();
+    wishLine2=$("#card"+wishIndex+"_line2").val();
     weixinShare();//重新初始化分享接口，动态改变分享描述
 });
 
@@ -723,6 +791,12 @@ $(".pageBag_btn").click(function(){
 $(".wrongNumber_btn").click(function(){
     $(".wrongNumber").addClass("f-dn");
     $(".wrongNumber_btn").addClass("f-dn");
+})
+
+// 手机号码重复确认
+$(".usedNumber_btn").click(function(){
+    $(".usedNumber").addClass("f-dn");
+    $(".usedNumber_btn").addClass("f-dn");
 })
 
 /* 手机号验证框 */
@@ -773,11 +847,11 @@ function hideWaiting(){
 showWaiting();
 
 // trackingCode    
-//     $(".track_data").click(function(){
-//         var track = $(this).attr("track");
-//         var data = $(this).attr("track-data");
-//         ga('send','event','CNY-social',track,data);
-//     })
+    $(".track_data").click(function(){
+        var track = $(this).attr("track");
+        var data = $(this).attr("track-data");
+        ga('send','event','38social',track,data);
+    })
 });
 
 
