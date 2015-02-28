@@ -189,7 +189,7 @@ loadimg(pics,function(w){
             success:function(response){
                 var shareTitle = response.title;
                 var shareContent = response.content;
-                var cardIndex = parseInt(response.value || 0);
+                var cardIndex = parseInt(response.value || 1);
                 //TODO: 袁叶浩把分享后的导入页面内容加进来
                 //alert(shareTitle + "  " + shareContent + "   " + cardIndex);
                 document.getElementById("page8_line1").value = shareTitle;
@@ -373,7 +373,7 @@ $(".page1_btn").click(function(e){
 //滑动漫画
 var comicIndex=0,
     maxIndex=3,
-    wishIndex=0,
+    wishIndex=1,
     minDistance = 30;
 
 var tsPoint = {
