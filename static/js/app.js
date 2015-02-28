@@ -342,6 +342,12 @@ $(".page_info").click(function(e){
     $(".pageInfo_back").removeClass("f-dn");
 });
 
+$(".page8_info").click(function(e){
+    infoMasked = !0;
+    $(".pageInfo").removeClass("f-dn");
+    $(".pageInfo_back").removeClass("f-dn");
+});
+
 
 $(".pageInfo_back").click(function(e){
 
@@ -763,10 +769,7 @@ $(".page5_arrowL").click(function(e){
 });
 
 
-$(".page3_gesture").click(function(){
-    $(".pageBag").removeClass("f-dn");
-    $(".pageBag_btn").removeClass("f-dn");
-});
+
 
 // 分享图层
 $(".page5_share").click(function(){
@@ -786,6 +789,23 @@ $(".page3_secret").click(function(){
     $(".pageBag").removeClass("f-dn");
     $(".pageBag_btn").removeClass("f-dn");
 });
+
+$(".page3_gesture").click(function(){
+    $(".pageBag").removeClass("f-dn");
+    $(".pageBag_btn").removeClass("f-dn");
+});
+
+$(".page8_txt").click(function(){
+    $(".pageBag").removeClass("f-dn");
+    $(".pageBag_btn").removeClass("f-dn");
+});
+
+$(".page8_gesture").click(function(){
+    $(".pageBag").removeClass("f-dn");
+    $(".pageBag_btn").removeClass("f-dn");
+});
+
+
 
 $(".pageBag_btn").click(function(){
     $(".pageBag").addClass("f-dn");

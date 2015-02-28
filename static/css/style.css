@@ -192,6 +192,15 @@ body .percent_symbol{
     z-index: 1;
 }
 
+.page8_info{
+    position: absolute;
+    left: 75%;
+    width: 22.34%; /*143/640*/
+    height: 10%;    
+    top:2%;
+    z-index: 1;
+}
+
 .info_img{
     position: absolute;
     top: 40%;
@@ -760,15 +769,23 @@ body .percent_symbol{
     position: absolute;
     left: 19.6%;
     width: 60.8%;/*389/640*/
-    top: 81%;
+    top: 86%;
     z-index: 10000;
 }
 
 .page8_txt{
     position: absolute;
-    left: 15.8%;
-    width: 68.4%;/*438/640*/
+    left: 24.8%;
+    width: 50.31%;/*322/640*/
     top: 68%;
+}
+
+.page8_gesture{
+    position: absolute;
+    width: 10.47%; /*67/640*/
+    top: 69%;
+    left: 45%;
+    z-index: 10011;
 }
 
 .page8_card1{
@@ -836,7 +853,7 @@ body .percent_symbol{
     position: absolute;
     left: 7.5%;
     width: 83%;/*531/640*/
-    top: 71%;
+    top: 77%;
     z-index: 10001;
 }
 

@@ -339,7 +339,7 @@ body .loading_dot3{
     position: absolute;
     left: 19.6%;
     width: 60.8%;/*389/640*/
-    top: 89%;
+    top: 78%;
     z-index: 10000;
 }
 
@@ -349,7 +349,7 @@ body .loading_dot3{
     position: absolute;
     left: 5.5%;
     width: 89.1%; /*570/640*/
-    top: 14%;
+    top: 5%;
     z-index: 2;
 }
 
@@ -357,7 +357,7 @@ body .loading_dot3{
     position: absolute;
     left: 8.7%;
     width: 82.6%;/*529/640*/
-    top: 14%;
+    top: 5%;
     z-index: 2;
 }
 
@@ -365,13 +365,13 @@ body .loading_dot3{
     position: absolute;
     left: 10.4%;
     width: 79.2%; /*507/640*/
-    top: 14%;
+    top: 5%;
     z-index: 2;
 }
 
 .page8_line1{
     position: absolute;
-    top: 28%;
+    top: 17%;
     width: 64%;
     height: 5%;
     left: 18%;
@@ -392,7 +392,7 @@ body .loading_dot3{
 
 .page8_line2{
     position: absolute;
-    top: 34%;
+    top: 23%;
     width: 64%;
     height: 5%;
     left: 17%;
@@ -413,10 +413,32 @@ body .loading_dot3{
     position: absolute;
     left: 7.5%;
     width: 83%;/*531/640*/
-    top: 78%;
+    top: 69%;
     z-index: 10001;
 }
 
+.page8_txt{
+    position: absolute;
+    left: 24.8%;
+    width: 50.31%;/*322/640*/
+    top: 62%;
+}
+
+.page8_gesture{
+    position: absolute;
+    width: 10.47%; /*67/640*/
+    top: 62%;
+    left: 45%;
+    z-index: 10011;
+}
+.page8_info{
+    position: absolute;
+    left: 75%;
+    width: 22.34%; /*143/640*/
+    height: 10%;    
+    top:-3%;
+    z-index: 1;
+}
 
 /*神秘大奖*/
 
