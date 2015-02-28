@@ -630,7 +630,7 @@ $(".page4_creat").click(function(){
 
 //点击选择贺卡
 $(".page5_arrowR").click(function(e){
-    cardIndex = cardIndex%3;
+    
     console.log("cardIndex:"+cardIndex);
     $(".page5_card1").removeClass("animated fadeOutRight1");
     $(".page5_card1").removeClass("animated fadeInLeft1");
@@ -678,6 +678,7 @@ $(".page5_arrowR").click(function(e){
     if(cardIndex<0){
         cardIndex = cardIndex+3;
     }
+    cardIndex = cardIndex%3;
     wishIndex = cardIndex+1;
     wishLine1=$("#card"+wishIndex+"_line1").val();
     wishLine2=$("#card"+wishIndex+"_line2").val();
@@ -685,7 +686,7 @@ $(".page5_arrowR").click(function(e){
 });
 
 $(".page5_arrowL").click(function(e){
-    cardIndex = cardIndex%3;
+    
     console.log("cardIndex:"+cardIndex);
     $(".page5_card1").removeClass("animated fadeOutRight1");
     $(".page5_card1").removeClass("animated fadeInLeft1");
@@ -754,6 +755,7 @@ $(".page5_arrowL").click(function(e){
     if(cardIndex<0){
         cardIndex = cardIndex+3;
     }
+    cardIndex = cardIndex%3;
     wishIndex = cardIndex+1;
     wishLine1=$("#card"+wishIndex+"_line1").val();
     wishLine2=$("#card"+wishIndex+"_line2").val();
