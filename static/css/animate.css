@@ -194,6 +194,53 @@ Copyright (c) 2014 Daniel Eden
   -webkit-animation-duration:1.25s !important;        
 }
 
+@-webkit-keyframes pulse2 {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+            transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+            transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse2 {
+  -webkit-animation-name: pulse2;
+          animation-name: pulse2;
+          animation-duration:2.25s !important;
+  -webkit-animation-duration:2.25s !important;        
+}
+
 
 @-webkit-keyframes arrowL {
   
@@ -4407,4 +4454,46 @@ Copyright (c) 2014 Daniel Eden
 .slideOutUp {
   -webkit-animation-name: slideOutUp;
           animation-name: slideOutUp;
+}
+
+@-webkit-keyframes textGradient1{
+  0%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,0% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+  10%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,10% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+  20%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,20% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+  30%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,30% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+  40%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,40% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+  50%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,50% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+  60%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,60% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+  70%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,70% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+  80%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,80% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+  90%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,90% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+
+  100%{
+    -webkit-mask: -webkit-gradient(linear,0% 0%,10% 0%,from(rgba(222,187,71,0.8)),to(rgba(36,142,36,0.2)));
+  }
+  
+}
+.textGradient1{
+   -webkit-animation-name: textGradient1;
+           animation-name: textGradient1;
 }

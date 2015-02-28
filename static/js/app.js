@@ -766,6 +766,11 @@ $(function(){
         $(".pageBag_btn").removeClass("f-dn");
     });
 
+     $(".page3_gesture").click(function(){
+        $(".pageBag").removeClass("f-dn");
+        $(".pageBag_btn").removeClass("f-dn");
+    });
+
     $(".pageBag_btn").click(function(){
         $(".pageBag").addClass("f-dn");
         $(".pageBag_btn").addClass("f-dn");
