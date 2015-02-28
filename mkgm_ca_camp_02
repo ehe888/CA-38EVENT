@@ -1,22 +1,22 @@
 #! /bin/bash
 
 ### BEGIN INIT INFO
-# Provides:          mkgm-ca-camp-02-service
+# Provides:          CA-38EVENT-service
 # Required-Start:    $remote_fs $named $syslog
 # Required-Stop:     $remote_fs $named $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: node.js mkgm c&/a campaign 02 service
+# Short-Description: node.js mkgm c&/a CA-38EVENT service
 ### END INIT INFO
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
-DAEMON_ARGS="/home/ehe/mkgm_ca_camp1/bin/www" 
-DESC="node.js mkgm ca campaign 02 service"
+DAEMON_ARGS="/home/ehe/CA-38EVENT/bin/www" 
+DESC="node.js mkgm ca CA-38EVENT service"
 NODEUSER=node:node
 LOCAL_VAR_RUN=/var/run
 NAME=node
 DAEMON=/usr/local/bin/$NAME
-LOGFILE=/data1/log/mkgm_ca_camp_02/node-service.log
+LOGFILE=/data1/log/CA-38EVENT/service.log
 
 
 # Do NOT "set -e"
