@@ -226,7 +226,7 @@ function weixinShare(){
     var shareUrl = "http://" + window.location.host + "?sharedby=" + openid 
              + "&shareid=" + shareid + "&mobile=" + phone + "&utm_source=share&utm_medium=share&utm_campaign=38social",
     shareImg = "http://" + window.location.host + '/images/icon.jpg',
-    random = Math.random(),
+    random = Math.random();
     
     if(random<0.33){
         title ='什么鬼？没有闺蜜折扣怎么幸福过三八！';
