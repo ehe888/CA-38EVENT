@@ -373,7 +373,7 @@ $(".page1_btn").click(function(e){
 //滑动漫画
 var comicIndex=0,
     maxIndex=3,
-    wishIndex=0,
+    wishIndex=1,
     minDistance = 30;
 
 var tsPoint = {
