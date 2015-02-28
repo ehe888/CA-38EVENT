@@ -221,7 +221,7 @@ app.get('/', function(req, res, next) {
                                         }
                                         client.query('COMMIT', done);
                                         //if insert success then send 50 yuan short message
-                                        var rawString = util.format("mobile=%s&promo_type=2", config.debug ? '13764211365' : input.mobile.trim());
+                                        var rawString = util.format("mobile=%s&promo_type=2", config.debug ? '13764211365' : mobile.trim());
                         
                                         var hmac = crypto.createHmac('sha256', config.smsAppSecret);
                                         hmac.update(rawString);
@@ -236,7 +236,7 @@ app.get('/', function(req, res, next) {
                                         request.post({
                                                 url: gwUrl,
                                                 form: {
-                                                    mobile: config.debug ? '13764211365' : input.mobile.trim(),
+                                                    mobile: config.debug ? '13764211365' : mobile.trim(),
                                                     promo_type: 2,
                                                     sign: smsSign
                                                 }
