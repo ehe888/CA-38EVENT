@@ -1,10 +1,10 @@
 #This is the monit config file 
 #we use this file tell Monit to monitor our service and restart it in case of any crash
 
-check mkgm_ca_camp_02
-with pidfile /var/run/mkgm_ca_camp_02.pid
-start program = "/etc/init.d/mkgm_ca_camp_02 start"
-stop program = "/etc/init.d/mkgm_ca_camp_02 stop"
+check CA-38EVENT
+with pidfile /var/run/CA-38EVENT.pid
+start program = "/etc/init.d/CA-38EVENT start"
+stop program = "/etc/init.d/CA-38EVENT stop"
 
 if failed port 8080 protocol HTTP request / with timeout 5 seconds then restart
 if 3 restarts within 5 cycles then timeout

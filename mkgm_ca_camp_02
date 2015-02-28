@@ -10,7 +10,7 @@
 ### END INIT INFO
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
-DAEMON_ARGS="/home/ehe/CA-38EVENT/bin/www" 
+DAEMON_ARGS="/data1/dynos/nodejs/CA-38EVENT/bin/www" 
 DESC="node.js mkgm ca CA-38EVENT service"
 NODEUSER=node:node
 LOCAL_VAR_RUN=/var/run
