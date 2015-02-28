@@ -769,6 +769,9 @@ $(".page3_gesture").click(function(){
 // 分享图层
 $(".page5_share").click(function(){
     $(".share-screen").removeClass("f-dn");
+    wishLine1=$("#card"+wishIndex+"_line1").val();
+    wishLine2=$("#card"+wishIndex+"_line2").val();
+    weixinShare();//重新初始化分享接口，动态改变分享描述
 });
 
 $(".sharePage").click(function(){
