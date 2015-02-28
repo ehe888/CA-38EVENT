@@ -783,7 +783,7 @@ body .percent_symbol{
 .page8_gesture{
     position: absolute;
     width: 7%; /*67/640*/
-    top: 69%;
+    top: 71%;
     left: 45%;
     z-index: 10011;
 }
