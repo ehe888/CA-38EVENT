@@ -342,6 +342,12 @@ $(".page_info").click(function(e){
     $(".pageInfo_back").removeClass("f-dn");
 });
 
+$(".page8_info").click(function(e){
+    infoMasked = !0;
+    $(".pageInfo").removeClass("f-dn");
+    $(".pageInfo_back").removeClass("f-dn");
+});
+
 
 $(".pageInfo_back").click(function(e){
 
