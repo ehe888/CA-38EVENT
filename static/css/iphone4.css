@@ -2,6 +2,13 @@
 
 /*加载页*/
 
+body .loading_text{
+    position: absolute;
+    top: 61%;
+    left: 29%;
+    width: 39.53%;/*253px*/
+}
+
 body .loading_dot1{
     position: absolute;
     top: 63.5%;
@@ -100,6 +107,14 @@ body .loading_dot3{
     height: 8%;
     top: 58.1%;
     z-index: 10010;
+}
+
+.page3_gesture{
+    position: absolute;
+    width: 10.47%; /*67/640*/
+    top: 60%;
+    left: 72%;
+    z-index: 10011;
 }
 
 .secret_img{

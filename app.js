@@ -182,7 +182,7 @@ app.get('/', function(req, res, next) {
     var openid = req.cookies.openid;
     /*if sharedby is not null then 
      check if the user has been send 50 bonus, if not send 50 bonus to him/her */
-    if(sharedby && openid){
+    if(sharedby && openid && mobile !== 'undefined'){
         pg.connect(conString, function(err, client, done) {
             if(err) {
                 console.error('error get connection from pool', err);
@@ -222,10 +222,16 @@ app.get('/', function(req, res, next) {
                         
                                         var hmac = crypto.createHmac('sha256', config.smsAppSecret);
                                         hmac.update(rawString);
-                                        var smsSign = hmac.digest();
+                                        
+                                        var smsSign = hmac.digest('hex');
+                                        
+                                        var gwUrl = config.smsGateway + "?" + rawString + "&sign=" + smsSign;
+                                        
+                                        console.log("url: " + gwUrl);
+                                        console.log("signature: " + smsSign);
                                         
                                         request.post({
-                                                url: config.smsGateway,
+                                                url: gwUrl,
                                                 form: {
                                                     mobile: config.debug ? '13764211365' : input.mobile.trim(),
                                                     promo_type: 2,
@@ -476,10 +482,16 @@ app.post('/lottery', function(req, res, next){
                         
                         var hmac = crypto.createHmac('sha256', config.smsAppSecret);
                         hmac.update(rawString);
-                        var smsSign = hmac.digest();
+                        
+                        var smsSign = hmac.digest('hex');
+                        
+                        var gwUrl = config.smsGateway + "?" + rawString + "&sign=" + smsSign;
+                        
+                        console.log("url: " + gwUrl);
+                        console.log("signature: " + smsSign);
                         
                         request.post({
-                                url: config.smsGateway,
+                                url: gwUrl,
                                 form: {
                                     mobile: config.debug ? '13764211365' : input.mobile.trim(),
                                     promo_type: 1,

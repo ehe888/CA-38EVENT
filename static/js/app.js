@@ -589,51 +589,32 @@ $(".page5_arrowR").click(function(e){
 
     switch(cardIndex){
         case 0:    
-
             $(".page5_card1").addClass("animated fadeOutRight1");
             $(".page5_card1").removeClass("f-ad2");
-
             $(".page5_card2").removeClass("f-ann");
             $(".page5_card2").addClass("animated fadeInLeft1");
             $(".page5_card3").addClass("f-ann");
-
-
             cardIndex++;
-
-
             break;
-
         case 1:
-
             $(".page5_card2").addClass("animated fadeOutRight1");
-
             $(".page5_card3").removeClass("f-ann");
             $(".page5_card3").addClass("animated fadeInLeft1");
             $(".page5_card1").addClass("f-ann");
-
             cardIndex++;
-
             break;
-
         case 2:
-
             $(".page5_card3").addClass("animated fadeOutRight1");
-
             $(".page5_card1").removeClass("f-ann");
             $(".page5_card1").addClass("animated fadeInLeft1");
             $(".page5_card2").addClass("f-ann");
-
-
             cardIndex++;
             break;
-
         default:
-
             cardIndex =0;
             break;
-
-
     }
+
     if(cardIndex<0){
         cardIndex = cardIndex+3;
     }
@@ -713,35 +694,11 @@ $(".page5_arrowL").click(function(e){
     weixinShare();//重新初始化分享接口，动态改变分享描述
 });
 
-// 编辑自定义文字
-// $(".page5_cus").click(function(){
-//     alert("点击文本自定义祝福");
-//     switch(cardIndex){
-//             case 0:    
-//                 document.getElementById("card1_line1").readOnly=false;
-//                 document.getElementById("card1_line2").readOnly=false;                                               
-//                 break;
 
-//             case 1:
-//                 document.getElementById("card2_line1").readOnly=false;
-//                 document.getElementById("card2_line2").readOnly=false;   
-
-//                 break;
-
-//             case 2:
-//                 document.getElementById("card3_line1").readOnly=false;
-//                 document.getElementById("card3_line2").readOnly=false;  
-
-//                 break;
-
-//             default:
-
-//                 cardIndex =0;
-//                 break;
-//     }   
-
-// });
-
+$(".page3_gesture").click(function(){
+    $(".pageBag").removeClass("f-dn");
+    $(".pageBag_btn").removeClass("f-dn");
+});
 
 // 分享图层
 $(".page5_share").click(function(){
@@ -805,15 +762,6 @@ $(".m-screen8").find(".page8_input").on('blur', 'input', function(){
         }
     } 
 });
-
-
-
-
-
-
-
-
-
 
 
 //显示waiting
