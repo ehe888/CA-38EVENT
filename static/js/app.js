@@ -191,6 +191,7 @@ loadimg(pics,function(w){
                 var shareContent = response.content;
                 var cardIndex = parseInt(response.value || 0);
                 //TODO: 袁叶浩把分享后的导入页面内容加进来
+                //alert(shareTitle + "  " + shareContent + "   " + cardIndex);
             }
         });
     }
@@ -200,11 +201,10 @@ loadimg(pics,function(w){
     }
 });
 
-
 //微信分享朋友，分享朋友圈逻辑
 function weixinShare(){
     var arrayIndex = cardIndex;
-    var phone = $("#input_mobile").val();
+        
     
     //分享各个参数初始化
     var shareUrl = "http://" + window.location.host + "?sharedby=" + openid 
@@ -214,8 +214,8 @@ function weixinShare(){
     title = random<0.5?'这个三八节怎么过最幸胡？和闺蜜来C&A让扮靓～':'妇女节我最大！邀闺蜜齐享C&A三八壕气折扣～';
     
     wx.onMenuShareAppMessage({
-        title: title, // 分享标题
-        desc: "", // 分享描述
+        title: "", // 分享标题
+        desc: title, // 分享描述
         link: shareUrl, // 分享链接
         imgUrl: shareImg, // 分享图标
         success: function () { 
@@ -252,8 +252,8 @@ function weixinShare(){
     });
     //分享给朋友圈
     wx.onMenuShareTimeline({
-        title: title, // 分享标题
-        desc: "",
+        title: "", // 分享标题
+        desc: title,
         link: shareUrl, // 分享链接
         imgUrl:shareImg, // 分享图标
         success: function () { 
@@ -504,11 +504,11 @@ var swipeDirection2 = function(tsPoint,tePoint){
 
 }
 
+var phone;
 
 //抽取红包(验证手机号)
 $(".page3_drawBtn").click(function(e){
-    var phone = $("#input_mobile").val();
-
+    phone = $("#input_mobile").val();
     var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
     // phone = 13800138000;
     if (phone=="" || phoneRex.test(phone)==false || phone.length>11){
@@ -741,10 +741,6 @@ $(".m-screen3").find(".page3_phoneNumber").on('blur', 'input', function(){
         }
     } 
 });
-
-
-
-
 
 $(".m-screen8").find(".page8_input").on('blur', 'input', function(){
     if($(this).attr('id') === 'input_mobile2' ){
