@@ -35,7 +35,7 @@ module.exports = function(){
                 jsTicketHost: 'localhost',
                 wxAppId: 'wx891111d0998d92f5',
                 wxAppSecret: '00033763ef83d362d3e00a14f576b963',
-                smsGateway: 'http://ca.client.efashionchina.com/campaign/mobile/register/',
+                smsGateway: 'http://www.canda.cn/campaign/mobile/register/',
                 smsAppSecret: 'xx4RjNXUZAEgFzZVuwnoWCvM',
                 dbConStr: "postgres://pguser:001@Helei@121.40.123.135/test_mkgm_ca_camp2"
             };

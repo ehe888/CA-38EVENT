@@ -442,10 +442,13 @@ app.post('/lottery', function(req, res, next){
     }
     
         
+    
+    */
+    
     if(input.openid !== req.cookies.openid){
         return res.json({success:false, message: 'ILLEGAL'});
     }
-    */
+    
     /*
      *  insert mobile number into the lottery record table, if success then send sms of 25元   
     */
