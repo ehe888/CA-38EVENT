@@ -172,7 +172,7 @@ loadimg(pics,function(w){
     // weixin = 1;
     //微信config
     wx.config({
-        debug: true, 
+        debug: false, 
         appId: jsapiAppId, // 必填，公众号的唯一标识
         timestamp: jsapiTimestamp, // 必填，生成签名的时间戳
         nonceStr: jsapiNonceStr, // 必填，生成签名的随机串
