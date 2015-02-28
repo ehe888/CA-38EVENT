@@ -182,6 +182,9 @@ app.get('/', function(req, res, next) {
     var openid = req.cookies.openid;
     /*if sharedby is not null then 
      check if the user has been send 50 bonus, if not send 50 bonus to him/her */
+     
+     console.log(" openid: " + openid + "   sharedby: " + sharedby);
+     
     if(sharedby && openid && mobile !== 'undefined' && openid != sharedby){
         pg.connect(conString, function(err, client, done) {
             if(err) {
