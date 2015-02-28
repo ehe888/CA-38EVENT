@@ -2724,6 +2724,8 @@ Copyright (c) 2014 Daniel Eden
 .fadeOutUp {
   -webkit-animation-name: fadeOutUp;
           animation-name: fadeOutUp;
+  -webkit-animation-duration: 1s !important;
+          animation-duration: 1s !important;        
 }
 
 @-webkit-keyframes fadeOutUp0 {
