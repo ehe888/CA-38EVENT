@@ -238,7 +238,7 @@ function weixinShare(){
 
     wx.onMenuShareAppMessage({
         title: title, // 分享标题
-        desc: "", // 分享描述
+        desc: "致闺蜜，和你在一起", // 分享描述
         link: shareUrl, // 分享链接
         imgUrl: shareImg, // 分享图标
         success: function () { 
@@ -277,7 +277,7 @@ function weixinShare(){
     //分享给朋友圈
     wx.onMenuShareTimeline({
         title: title, // 分享标题
-        desc: "",
+        desc: "致闺蜜，和你在一起",
         link: shareUrl, // 分享链接
         imgUrl:shareImg, // 分享图标
         success: function () { 
