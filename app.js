@@ -244,6 +244,7 @@ app.get('/', function(req, res, next) {
                                                 if(err){
                                                     console.error(err);
                                                     //TODO: If there is any error we'd better save the record into recover pool
+                                                    
                                                 }
                                                 console.log("send 50 sms without error the result => " + bd);
                                             }
