@@ -201,19 +201,17 @@ loadimg(pics,function(w){
 });
 
 
-
-//分享各个参数初始化
-var shareUrl = "http://" + window.location.host + "?sharedby=" + openid 
-             + "&shareid=" + shareid + "&mobile=" + phone + "&utm_source=share&utm_medium=share&utm_campaign=CNYsocial",
-    shareImg = "http://" + window.location.host + '/images/logo.png',
-    random = Math.random(),
-    title = random<0.5?'这个三八节怎么过最幸胡？和闺蜜来C&A让扮靓～':'妇女节我最大！邀闺蜜齐享C&A三八壕气折扣～';
-
-
 //微信分享朋友，分享朋友圈逻辑
 function weixinShare(){
     var arrayIndex = cardIndex;
     var phone = $("#input_mobile").val();
+    
+    //分享各个参数初始化
+    var shareUrl = "http://" + window.location.host + "?sharedby=" + openid 
+             + "&shareid=" + shareid + "&mobile=" + phone + "&utm_source=share&utm_medium=share&utm_campaign=CNYsocial",
+    shareImg = "http://" + window.location.host + '/images/logo.png',
+    random = Math.random(),
+    title = random<0.5?'这个三八节怎么过最幸胡？和闺蜜来C&A让扮靓～':'妇女节我最大！邀闺蜜齐享C&A三八壕气折扣～';
     
     wx.onMenuShareAppMessage({
         title: title, // 分享标题
