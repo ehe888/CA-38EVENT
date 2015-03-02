@@ -439,36 +439,36 @@ app.post('/lottery', function(req, res, next){
                         );
                         
                         /* send 50 bucks to the initiator */
-                        /*
-                        pg.connect(conString, function(err, client, done) {
-                            if(err) {
-                                return console.error('error fetching client from pool', err);
-                            }
-                            
-                            console.log("50 bucks!");
-                            client.query('SELECT mobile, shareid, sharedby from share_info where shareid=$1', 
-                                    [input.shareid], function(err, result) {
-                                //call `done()` to release the client back to the pool
-                                done();
-                                
+                        if(input.sharedby){
+                            pg.connect(conString, function(err, client, done) {
                                 if(err) {
-                                    return console.error('error running query', err);
+                                    return console.error('error fetching client from pool', err);
                                 }
                                 
-                                
-                                if(result.rows.length > 0){
+                                client.query('SELECT mobile, shareid, sharedby from share_info where shareid=$1', 
+                                        [input.shareid], function(err, result) {
+                                    //call `done()` to release the client back to the pool
+                                    done();
                                     
-                                    var data = result.rows[0],
-                                        bonusMobile = data.mobile;
-                                        console.log("get bonus source sharing infor" + phoneRex.test(bonusMobile));
-                                    if(bonusMobile && phoneRex.test(bonusMobile)){
-                                        //add bonus and send sms
-                                        addBonus(bonusMobile, data.shareid, data.sharedby, input.openid);
+                                    if(err) {
+                                        return console.error('error running query', err);
                                     }
-                                }
-                            });
-                        }); 
-                        */
+                                    
+                                    
+                                    if(result.rows.length > 0){
+                                        
+                                        var data = result.rows[0],
+                                            bonusMobile = data.mobile;
+                                            console.log("get bonus source sharing infor" + phoneRex.test(bonusMobile));
+                                        if(bonusMobile && phoneRex.test(bonusMobile)){
+                                            //add bonus and send sms
+                                            addBonus(bonusMobile, data.shareid, data.sharedby, input.openid);
+                                        }
+                                    }
+                                });
+                            }); 
+                        }
+                        
                         return res.json({
                             success: true,
                             data: result
