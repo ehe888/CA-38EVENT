@@ -440,6 +440,7 @@ app.post('/lottery', function(req, res, next){
                         
                         /* send 50 bucks to the initiator */
                         if(input.sharedby){
+                            console.log("50 bucks shareid = " + input.shareid); //
                             pg.connect(conString, function(err, client, done) {
                                 if(err) {
                                     return console.error('error fetching client from pool', err);
@@ -449,6 +450,8 @@ app.post('/lottery', function(req, res, next){
                                         [input.shareid], function(err, result) {
                                     //call `done()` to release the client back to the pool
                                     done();
+                                    
+                                    console.log("50 bucks");
                                     
                                     if(err) {
                                         return console.error('error running query', err);

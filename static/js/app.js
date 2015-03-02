@@ -129,7 +129,7 @@ var pics = new Array();
 //cookie中获取微信config需要的参数，后台给
 var jsapiTicket = $.cookie("jsticket"),
     openid = $.cookie("openid"),
-    shareid = openid + '_' + Date.now(),
+    
     jsapiElements = jsapiTicket.split(","),
     jsapiAppId = jsapiElements[0],
     jsapiTimestamp = parseInt(jsapiElements[1]),
@@ -221,7 +221,7 @@ loadimg(pics,function(w){
 function weixinShare(){
     var arrayIndex = cardIndex;
         
-    
+    var shareid = openid + '_' + Date.now();
     //分享各个参数初始化
     var shareUrl = "http://" + window.location.host + "?sharedby=" + openid 
              + "&shareid=" + shareid + "&mobile=" + phone + "&utm_source=share&utm_medium=share&utm_campaign=38social",
@@ -552,8 +552,8 @@ $(".page3_drawBtn").click(function(e){
            dataType: 'json',
            data: { 
                mobile: phone,
-               openid:openid,
-               shareid:shareid,
+               openid: openid,
+               shareid: originShareId,
                sharedby:sharedBy
            }, 
            success: function(data){
@@ -599,8 +599,8 @@ $(".page8_draw").click(function(){
            dataType: 'json',
            data: { 
                mobile: phone,
-               openid:openid,
-               shareid:shareid,
+               openid: openid,
+               shareid: originShareId,
                sharedby:sharedBy
            }, 
            success: function(data){
