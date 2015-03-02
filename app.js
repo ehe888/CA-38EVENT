@@ -439,6 +439,7 @@ app.post('/lottery', function(req, res, next){
                         );
                         
                         /* send 50 bucks to the initiator */
+                        /*
                         pg.connect(conString, function(err, client, done) {
                             if(err) {
                                 return console.error('error fetching client from pool', err);
@@ -467,7 +468,7 @@ app.post('/lottery', function(req, res, next){
                                 }
                             });
                         }); 
-                        
+                        */
                         return res.json({
                             success: true,
                             data: result
