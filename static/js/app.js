@@ -331,6 +331,7 @@ var  infoMasked = !1;
 if (IsIphone4()==true) {
     $(".campInfo_ip4").attr("src","images/pageInfo_ip4.jpg");
     $(".page_bg_ip4").attr("src","images/page_bg_ip4.jpg");
+    $(".page_bg2_ip4").attr("src","images/page_bg2_ip4.jpg");
 };
 
 
