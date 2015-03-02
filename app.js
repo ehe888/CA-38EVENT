@@ -180,84 +180,6 @@ app.get('/', function(req, res, next) {
         shareid = req.query.shareid, //the unique shareing id that can help us to get shared content and title
         mobile = req.query.mobile; 
     var openid = req.cookies.openid;
-    /*if sharedby is not null then 
-     check if the user has been send 50 bonus, if not send 50 bonus to him/her */
-     
-     console.log(" openid: " + openid + "   sharedby: " + sharedby);
-     
-    if(sharedby && openid && mobile !== 'undefined' && openid != sharedby){
-        pg.connect(conString, function(err, client, done) {
-            if(err) {
-                console.error('error get connection from pool', err);
-                return next(err);
-            }
-            
-            client.query("select * from bonus_record where sharedby=$1", [sharedby], 
-                        function(err, result){
-                done(); 
-                if(err) {  
-                  console.error('error running query', err);
-                  next(err);
-                  return;
-                }
-                        
-                if(result.rows.length === 0 ){
-                    //first time bonus hit, insert into bonus_record
-                    pg.connect(conString, function(err, client, done) {
-                        if(err) {
-                            return next(err);
-                        }
-                        client.query('BEGIN', function(err) {
-                            if(err) return rollback(client, done);
-
-                            process.nextTick(function() {
-                                var text = "INSERT INTO bonus_record(mobile, openid, sharedby, shareid) " 
-                                    + "VALUES($1, $2, $3, $4)";
-                                client.query(text, [mobile, openid, sharedby, shareid], 
-                                    function(err) {
-                                        if(err) {
-                                            console.error(err);
-                                            return rollback(client, done);
-                                        }
-                                        client.query('COMMIT', done);
-                                        //if insert success then send 50 yuan short message
-                                        var rawString = util.format("mobile=%s&promo_type=2", config.debug ? '13764211365' : mobile.trim());
-                        
-                                        var hmac = crypto.createHmac('sha256', config.smsAppSecret);
-                                        hmac.update(rawString);
-                                        
-                                        var smsSign = hmac.digest('hex');
-                                        
-                                        var gwUrl = config.smsGateway + "?" + rawString + "&sign=" + smsSign;
-                                        
-                                        console.log("url: " + gwUrl);
-                                        console.log("signature: " + smsSign);
-                                        
-                                        request.post({
-                                                url: gwUrl,
-                                                form: {
-                                                    mobile: config.debug ? '13764211365' : mobile.trim(),
-                                                    promo_type: 2,
-                                                    sign: smsSign
-                                                }
-                                            }, function(err, res, bd){
-                                                if(err){
-                                                    console.error(err);
-                                                    //TODO: If there is any error we'd better save the record into recover pool
-                                                    
-                                                }
-                                                console.log("send 50 sms without error the result => " + bd);
-                                            }
-                                        );
-                                });
-                            });
-                        });
-                    });
-                }
-            });
-        });
-    }
-     
     
     var jsTicketUrl = "http://" + config.jsTicketHost + ":" + app.get('port') + "/jsticket";
     request.get(jsTicketUrl, function(err, response, body){
@@ -445,9 +367,16 @@ app.post('/lottery', function(req, res, next){
         });
     }
     
-        
-    
-    */
+    /* validate mobile phone number */
+    var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
+    // phone = 13800138000;
+    if ( input.mobile === "" || phoneRex.test(input.mobile)==false || input.mobile.length>11){
+        console.log("=====invalid mobile=== " + input.mobile);
+        return res.json({
+                success: false,
+                message: '无效的手机号码'
+        });
+    }
     
     if(input.openid !== req.cookies.openid){
         return res.json({success:false, message: 'ILLEGAL'});
@@ -486,16 +415,11 @@ app.post('/lottery', function(req, res, next){
                         console.log("===> send 25 yuan sms to the mobile");
                         
                         var rawString = util.format("mobile=%s&promo_type=1", config.debug ? '13764211365' : input.mobile.trim());
-                        
                         var hmac = crypto.createHmac('sha256', config.smsAppSecret);
                         hmac.update(rawString);
-                        
                         var smsSign = hmac.digest('hex');
-                        
                         var gwUrl = config.smsGateway + "?" + rawString + "&sign=" + smsSign;
                         
-                        console.log("url: " + gwUrl);
-                        console.log("signature: " + smsSign);
                         
                         request.post({
                                 url: gwUrl,
@@ -513,6 +437,36 @@ app.post('/lottery', function(req, res, next){
                                 
                             }
                         );
+                        
+                        /* send 50 bucks to the initiator */
+                        pg.connect(conString, function(err, client, done) {
+                            if(err) {
+                                return console.error('error fetching client from pool', err);
+                            }
+                            
+                            console.log("50 bucks!");
+                            client.query('SELECT mobile, shareid, sharedby from share_info where shareid=$1', 
+                                    [input.shareid], function(err, result) {
+                                //call `done()` to release the client back to the pool
+                                done();
+                                
+                                if(err) {
+                                    return console.error('error running query', err);
+                                }
+                                
+                                
+                                if(result.rows.length > 0){
+                                    
+                                    var data = result.rows[0],
+                                        bonusMobile = data.mobile;
+                                        console.log("get bonus source sharing infor" + phoneRex.test(bonusMobile));
+                                    if(bonusMobile && phoneRex.test(bonusMobile)){
+                                        //add bonus and send sms
+                                        addBonus(bonusMobile, data.shareid, data.sharedby, input.openid);
+                                    }
+                                }
+                            });
+                        }); 
                         
                         return res.json({
                             success: true,
@@ -670,5 +624,88 @@ app.use(function(err, req, res, next) {
 });
 
 
+
+var addBonus = function(mobile, shareid, sharedby, openid){
+    openid="ouluKs1OXcqxWaUGz5FfLRqagpEE";
+    /*if sharedby is not null then 
+     check if the user has been send 50 bonus, if not send 50 bonus to him/her */
+    console.log(" openid: " + openid + "   sharedby: " + sharedby);
+    
+     
+    if(sharedby && openid && openid != sharedby){
+        pg.connect(conString, function(err, client, done) {
+            if(err) {
+                console.error('error get connection from pool', err);
+                return next(err);
+            }
+            
+            client.query("select * from bonus_record where sharedby=$1", [sharedby], 
+                        function(err, result){
+                done(); 
+                if(err) {  
+                  console.error('error running query', err);
+                  next(err);
+                  return;
+                }
+                
+                console.log("get by sharedby" +  result.rows.length);
+                        
+                if(result.rows.length === 0 ){
+                    //first time bonus hit, insert into bonus_record
+                    pg.connect(conString, function(err, client, done) {
+                        if(err) {
+                            return next(err);
+                        }
+                        client.query('BEGIN', function(err) {
+                            if(err) return rollback(client, done);
+
+                            process.nextTick(function() {
+                                var text = "INSERT INTO bonus_record(mobile, openid, sharedby, shareid) " 
+                                    + "VALUES($1, $2, $3, $4)";
+                                client.query(text, [mobile, openid, sharedby, shareid], 
+                                    function(err) {
+                                        if(err) {
+                                            console.error(err);
+                                            return rollback(client, done);
+                                        }
+                                        client.query('COMMIT', done);
+                                        //if insert success then send 50 yuan short message
+                                        var rawString = util.format("mobile=%s&promo_type=2", config.debug ? '13764211365' : mobile.trim());
+                        
+                                        var hmac = crypto.createHmac('sha256', config.smsAppSecret);
+                                        hmac.update(rawString);
+                                        
+                                        var smsSign = hmac.digest('hex');
+                                        
+                                        var gwUrl = config.smsGateway + "?" + rawString + "&sign=" + smsSign;
+                                        
+                                        console.log("url: " + gwUrl);
+                                        console.log("signature: " + smsSign);
+                                        
+                                        request.post({
+                                                url: gwUrl,
+                                                form: {
+                                                    mobile: config.debug ? '13764211365' : mobile.trim(),
+                                                    promo_type: 2,
+                                                    sign: smsSign
+                                                }
+                                            }, function(err, res, bd){
+                                                if(err){
+                                                    console.error(err);
+                                                    //TODO: If there is any error we'd better save the record into recover pool
+                                                    
+                                                }
+                                                console.log("send 50 sms without error the result => " + bd);
+                                            }
+                                        );
+                                });
+                            });
+                        });
+                    });
+                }
+            });
+        });
+    }
+}
 
 module.exports = app;
