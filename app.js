@@ -627,7 +627,7 @@ app.use(function(err, req, res, next) {
 
 
 var addBonus = function(mobile, shareid, sharedby, openid){
-    openid="ouluKs1OXcqxWaUGz5FfLRqagpEE";
+    
     /*if sharedby is not null then 
      check if the user has been send 50 bonus, if not send 50 bonus to him/her */
     console.log(" openid: " + openid + "   sharedby: " + sharedby);
