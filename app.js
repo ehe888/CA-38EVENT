@@ -446,7 +446,7 @@ app.post('/lottery', function(req, res, next){
                                     return console.error('error fetching client from pool', err);
                                 }
                                 
-                                client.query('SELECT mobile, shareid, sharedby from share_info where shareid=$1', 
+                                client.query('SELECT mobile, shareid, openid from share_info where shareid=$1', 
                                         [input.shareid], function(err, result) {
                                     //call `done()` to release the client back to the pool
                                     done();
@@ -465,7 +465,7 @@ app.post('/lottery', function(req, res, next){
                                             console.log("get bonus source sharing infor" + phoneRex.test(bonusMobile));
                                         if(bonusMobile && phoneRex.test(bonusMobile)){
                                             //add bonus and send sms
-                                            addBonus(bonusMobile, data.shareid, data.sharedby, input.openid);
+                                            addBonus(bonusMobile, data.shareid, data.openid, input.openid);
                                         }
                                     }
                                 });
