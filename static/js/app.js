@@ -425,7 +425,7 @@ var swipeEvent2 = function(e){
 }
 
 
-var comicSwiper = document.getElementById("comicSwiper");
+var comicSwiper = document.getElementById("comicSwiper_0");
 comicSwiper.addEventListener("touchstart",swipeEvent2);
 comicSwiper.addEventListener("touchmove",swipeEvent2);
 comicSwiper.addEventListener("touchend",swipeEvent2);
