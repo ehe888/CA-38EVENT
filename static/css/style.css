@@ -849,6 +849,21 @@ body .percent_symbol{
     letter-spacing: 0em;
 
 }
+
+.page8_from{
+    position: absolute;
+    top: 37%;
+    left: 48%;
+    width: 31.41%; /*201px*/
+}
+
+.page8_to{
+    position: absolute;
+    top: 21%;
+    left: 16%;
+    width: 26.25%; /*168px*/
+}
+
 .page8_input{
     position: absolute;
     left: 7.5%;
@@ -941,6 +956,13 @@ body .percent_symbol{
     width: 45.62%; /*292px*/ 
 }
 
+
+.continuePlay_btn{
+    position: absolute;
+    top: 56%;
+    left: 27%;
+    width: 45.62%;
+} 
 
 .f-fl{float:left}
 .f-fr{float:right}

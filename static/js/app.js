@@ -332,6 +332,7 @@ if (IsIphone4()==true) {
     $(".campInfo_ip4").attr("src","images/pageInfo_ip4.jpg");
     $(".page_bg_ip4").attr("src","images/page_bg_ip4.jpg");
     $(".page_bg2_ip4").attr("src","images/page_bg2_ip4.jpg");
+    $(".wrongNumber_ip4").attr("src","images/wrongNumber_ip4.png");
 };
 
 
@@ -570,6 +571,7 @@ $(".page3_drawBtn").click(function(e){
                 else{
                     $(".usedNumber").removeClass("f-dn");
                     $(".usedNumber_btn").removeClass("f-dn");
+                    $(".continuePlay_btn").removeClass("f-dn");
                 }
             },
             error:function(data){
@@ -610,13 +612,16 @@ $(".page8_draw").click(function(){
                 {
                     console.log("value: "+data.data.value + "code: "+data.data.code);
                     lotteryValue = 25;
-                    $(".m-screen8").addClass("animated fadeOutUp1");
-                    $(".m-screen4").removeClass("f-dn");
-                    $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
+                    
+                    $(".m-screen8").addClass("animated fadeOutUp1");                
+                    $('.m-screen2').removeClass("f-dn");
+                    $(".m-screen2").addClass("animated fadeInUp1 f-ad1" );            
+                    $(".m-screen2").find(".animated").removeClass("f-ann")
                 }
                 else{
                     $(".usedNumber").removeClass("f-dn");
                     $(".usedNumber_btn").removeClass("f-dn");
+                    $(".continuePlay_btn").removeClass("f-dn");
                 }
             },
             error:function(data){
@@ -823,6 +828,16 @@ $(".wrongNumber_btn").click(function(){
 $(".usedNumber_btn").click(function(){
     $(".usedNumber").addClass("f-dn");
     $(".usedNumber_btn").addClass("f-dn");
+    $(".continuePlay_btn").addClass("f-dn");
+})
+
+// 验证手机继续送祝福
+$(".continuePlay_btn").click(function(){
+    lotteryValue = 25;
+    $(".m-screen3").addClass("animated fadeOutUp1");
+    $(".m-screen8").addClass("animated fadeOutUp1");
+    $(".m-screen4").removeClass("f-dn");
+    $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
 })
 
 /* 手机号验证框 */
