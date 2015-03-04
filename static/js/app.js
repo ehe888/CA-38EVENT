@@ -833,6 +833,9 @@ $(".usedNumber_btn").click(function(){
 
 // 验证手机继续送祝福
 $(".continuePlay_btn").click(function(){
+    $(".usedNumber").addClass("f-dn");
+    $(".usedNumber_btn").addClass("f-dn");
+    $(".continuePlay_btn").addClass("f-dn");
     lotteryValue = 25;
     $(".m-screen3").addClass("animated fadeOutUp1");
     $(".m-screen8").addClass("animated fadeOutUp1");

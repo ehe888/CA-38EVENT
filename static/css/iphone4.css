@@ -468,7 +468,7 @@ body .loading_dot3{
 /*错误号码提示*/
 .wrongNumber_btn{
     position: absolute;
-    top: 36%;
+    top: 37%;
     left: 27%;
     width: 45.62%; /*292px*/
 }
@@ -483,7 +483,7 @@ body .loading_dot3{
 
 .continuePlay_btn{
     position: absolute;
-    top: 67%;
+    top: 72%;
     left: 27%;
     width: 45.62%;
 } 
