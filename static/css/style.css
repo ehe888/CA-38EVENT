@@ -935,7 +935,7 @@ body .percent_symbol{
 
 .wrongNumber_btn{
     position: absolute;
-    top: 30%;
+    top: 31%;
     left: 27%;
     width: 45.62%; /*292px*/
 }
@@ -959,7 +959,7 @@ body .percent_symbol{
 
 .continuePlay_btn{
     position: absolute;
-    top: 56%;
+    top: 61%;
     left: 27%;
     width: 45.62%;
 } 
