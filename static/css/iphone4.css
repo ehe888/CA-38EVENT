@@ -369,6 +369,22 @@ body .loading_dot3{
     z-index: 2;
 }
 
+.page8_from{
+    position: absolute;
+    top: 30%;
+    left: 48%;
+    width: 31.41%; /*201px*/
+    z-index: 3;
+}
+
+.page8_to{
+    position: absolute;
+    top: 14%;
+    left: 16%;
+    width: 26.25%; /*168px*/
+    z-index: 3;
+}
+
 .page8_line1{
     position: absolute;
     top: 17%;
@@ -465,3 +481,9 @@ body .loading_dot3{
     width: 45.62%; /*292px*/ 
 }
 
+.continuePlay_btn{
+    position: absolute;
+    top: 67%;
+    left: 27%;
+    width: 45.62%;
+} 
