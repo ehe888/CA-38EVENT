@@ -799,7 +799,7 @@ $(".continuePlay_btn").click(function(){
     $(".m-screen3").addClass("animated fadeOutUp1");
     $(".m-screen8").addClass("animated fadeOutUp1");
     $(".m-screen4").removeClass("f-dn");
-    $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
+    $(".m-screen5").addClass("animated fadeInUp1 f-ad1");
 })
 
 /* 手机号验证框 */
