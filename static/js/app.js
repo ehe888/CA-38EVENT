@@ -583,54 +583,13 @@ $(".page3_drawBtn").click(function(e){
 }); 
 
 //抽取红包（微信页）
-$(".page8_draw").click(function(){
-    phone = $("#input_mobile2").val();
-    var phoneRex =  /^(13[0-9]{9})|(14[0-9]{9})|(15[0-9]{9})|(18[0-9]{9})|(17[0-9]{9})$/;
-    // phone = 13800138000;
-    if (phone=="" || phoneRex.test(phone)==false || phone.length>11){
-        $(".wrongNumber").removeClass("f-dn");
-        $(".wrongNumber_btn").removeClass("f-dn");
-        //跳出确认手机号方法
-        return;
-    }
-    else if(!clicked){
-        clicked = 1;
-        $.ajax({
-           url: '/lottery',
-           type: 'post',
-           dataType: 'json',
-           data: { 
-               mobile: phone,
-               openid: openid,
-               shareid: originShareId,
-               sharedby:sharedBy
-           }, 
-           success: function(data){
-                clicked = 0;
-                console.dir(data);     
-                if(data.success) 
-                {
-                    console.log("value: "+data.data.value + "code: "+data.data.code);
-                    lotteryValue = 25;
+$(".page8_draw").click(function(){ 
+    lotteryValue = 25;
                     
-                    $(".m-screen8").addClass("animated fadeOutUp1");                
-                    $('.m-screen2').removeClass("f-dn");
-                    $(".m-screen2").addClass("animated fadeInUp1 f-ad1" );            
-                    $(".m-screen2").find(".animated").removeClass("f-ann")
-                }
-                else{
-                    $(".usedNumber").removeClass("f-dn");
-                    $(".usedNumber_btn").removeClass("f-dn");
-                    $(".continuePlay_btn").removeClass("f-dn");
-                }
-            },
-            error:function(data){
-                clicked = 0;
-            }
-        });  
-
-    }  
-  
+    $(".m-screen8").addClass("animated fadeOut f-ad1");                
+    $('.m-screen2').removeClass("f-dn");
+    $(".m-screen2").addClass("fadeInScale f-ad5" );            
+    $(".m-screen2").find(".animated").removeClass("f-ann");  
 });
 
 //红包页
@@ -840,7 +799,7 @@ $(".continuePlay_btn").click(function(){
     $(".m-screen3").addClass("animated fadeOutUp1");
     $(".m-screen8").addClass("animated fadeOutUp1");
     $(".m-screen4").removeClass("f-dn");
-    $(".m-screen4").addClass("animated fadeInUp1 f-ad1");
+    $(".m-screen5").addClass("animated fadeInUp1 f-ad1");
 })
 
 /* 手机号验证框 */
@@ -860,20 +819,7 @@ $(".m-screen3").find(".page3_phoneNumber").on('blur', 'input', function(){
     } 
 });
 
-$(".m-screen8").find(".page8_input").on('blur', 'input', function(){
-    if($(this).attr('id') === 'input_mobile2' ){
-        if($.trim($(this).val()) === ''){
-            $(this).val('请输入手机号');
 
-        }
-    }
-}).on('focus', 'input', function(){
-    if($(this).attr('id') === 'input_mobile2' ){
-        if($.trim($(this).val()) === '请输入手机号'){
-            $(this).val('');
-        }
-    } 
-});
 
 
 //显示waiting
