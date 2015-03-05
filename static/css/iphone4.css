@@ -345,46 +345,6 @@ body .loading_dot3{
 
 
 
-.page8_card1{
-    position: absolute;
-    left: 5.5%;
-    width: 89.1%; /*570/640*/
-    top: 5%;
-    z-index: 2;
-}
-
-.page8_card2{
-    position: absolute;
-    left: 8.7%;
-    width: 82.6%;/*529/640*/
-    top: 5%;
-    z-index: 2;
-}
-
-.page8_card3{
-    position: absolute;
-    left: 10.4%;
-    width: 79.2%; /*507/640*/
-    top: 5%;
-    z-index: 2;
-}
-
-.page8_from{
-    position: absolute;
-    top: 30%;
-    left: 48%;
-    width: 31.41%; /*201px*/
-    z-index: 3;
-}
-
-.page8_to{
-    position: absolute;
-    top: 14%;
-    left: 16%;
-    width: 26.25%; /*168px*/
-    z-index: 3;
-}
-
 .page8_line1{
     position: absolute;
     top: 17%;
@@ -410,7 +370,7 @@ body .loading_dot3{
     position: absolute;
     top: 23%;
     width: 64%;
-    height: 5%;
+    height: 8%;
     left: 17%;
     border: 0;
     background-color: transparent;
@@ -433,20 +393,6 @@ body .loading_dot3{
     z-index: 10001;
 }
 
-.page8_txt{
-    position: absolute;
-    left: 24.8%;
-    width: 50.31%;/*322/640*/
-    top: 62%;
-}
-
-.page8_gesture{
-    position: absolute;
-    width: 7%; /*67/640*/
-    top: 64%;
-    left: 45%;
-    z-index: 10011;
-}
 .page8_info{
     position: absolute;
     left: 75%;

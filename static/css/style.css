@@ -769,7 +769,7 @@ body .percent_symbol{
     position: absolute;
     left: 19.6%;
     width: 60.8%;/*389/640*/
-    top: 86%;
+    top: 77%;
     z-index: 10000;
 }
 
@@ -790,15 +790,15 @@ body .percent_symbol{
 
 .page8_card1{
     position: absolute;
-    left: 5.5%;
-    width: 89.1%; /*570/640*/
+    left: 9.5%;
+    width: 80%; /*512/640*/
     top: 12.5%;
 }
 
 .page8_card2{
     position: absolute;
-    left: 8.7%;
-    width: 82.6%;/*529/640*/
+    left: 9.5%;
+    width: 79.69%;/*510/640*/
     top: 12.5%;
 }
 
