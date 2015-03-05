@@ -344,47 +344,6 @@ body .loading_dot3{
 }
 
 
-
-.page8_line1{
-    position: absolute;
-    top: 17%;
-    width: 64%;
-    height: 5%;
-    left: 18%;
-    border: 0;
-    background-color: transparent;
-    overflow: hidden;
-    color: #2F344D;
-    font-size: 1.5em;
-    text-align: center;
-    font-weight: 700;
-    line-height: 200%;
-    
-    text-indent: 0;
-    letter-spacing: 0em;
-    z-index: 3;
-
-}
-
-.page8_line2{
-    position: absolute;
-    top: 23%;
-    width: 64%;
-    height: 8%;
-    left: 17%;
-    border: 0;
-    background-color: transparent;
-    overflow: hidden;
-    color: #2F344D;
-    font-size: 1.5em;
-    text-align: center;
-    font-weight: 700;
-    line-height: 200%;
-    
-    text-indent: 0;
-    letter-spacing: 0em;
-    z-index: 3;
-}
 .page8_input{
     position: absolute;
     left: 7.5%;

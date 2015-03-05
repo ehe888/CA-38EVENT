@@ -363,10 +363,11 @@ $(".pageInfo_back").click(function(e){
 //进入插画页
 $(".page1_btn").click(function(e){
 
-    $(".m-screen1").addClass("animated fadeOut f-ad1");                
+    $(".m-screen1").addClass("animated fadeOut f-ad1");  
+    $(".m-screen1").addClass("f-dn");  
     $('.m-screen2').removeClass("f-dn");
     $(".m-screen2").addClass("animated fadeInScale f-ad5" );            
-    $(".m-screen2").find(".animated").removeClass("f-ann")
+    $(".m-screen2").find(".animated").removeClass("f-ann");
 });
 
 
@@ -586,7 +587,8 @@ $(".page3_drawBtn").click(function(e){
 $(".page8_draw").click(function(){ 
     lotteryValue = 25;
                     
-    $(".m-screen8").addClass("animated fadeOut f-ad1");                
+    $(".m-screen8").addClass("animated fadeOut f-ad1");
+    $(".m-screen8").addClass("f-dn");                
     $('.m-screen2').removeClass("f-dn");
     $(".m-screen2").addClass("fadeInScale f-ad5" );            
     $(".m-screen2").find(".animated").removeClass("f-ann");  
@@ -798,7 +800,7 @@ $(".continuePlay_btn").click(function(){
     lotteryValue = 25;
     $(".m-screen3").addClass("animated fadeOutUp1");
     $(".m-screen8").addClass("animated fadeOutUp1");
-    $(".m-screen4").removeClass("f-dn");
+    $(".m-screen5").removeClass("f-dn");
     $(".m-screen5").addClass("animated fadeInUp1 f-ad1");
 })
 
